@@ -55,7 +55,9 @@
 \setenumerate{label=(\arabic*)}
 
 % Commands.
+\newcommand{\cat}[1]{\mathscr{#1}}
 \newcommand{\dual}[1]{#1^{\text{op}}}
+\newcommand{\fun}[3]{#1\colon #2\to #3}
 
 % Operators
 \DeclareMathOperator{\im}{im}
@@ -64,4 +66,36 @@
 \title{Grothendieck's Galois Theory}
 \author{Gabriele Rastello}
 \maketitle
+
+\section{Section 1}
+\label{sec:1}
+
+\begin{definition}
+  \label{def:strit_epi}
+  In a category \(\cat{C}\) an arrow \(\fun{f}{X}{Y}\) is a \textbf{strict epimorphism} if it is the joint coequalizer of all the arrows it equalizes.
+  This means that any arrow \(\fun{g}{X}{Z}\) such that \(g\circ x = g\circ y\) for any \(\fun{x,y}{C}{X}\) such that \(f\circ x = f\circ y\) there exists a unique arrow \(\fun{h}{Y}{Z}\) such that \(h\circ f = g\).
+  Refer to Figure \ref{diagram:strict_epi}.
+\end{definition}
+
+\begin{figure}[h]
+  \begin{center}
+    \begin{tikzcd}[sep=huge]
+      C \ar[r, shift right=1, "x"'] \ar[r, shift left=1, "y"] & X \ar[r, "f"] \ar[dr, "g"] & Y \ar[d, dashed, "h"]\\
+      & & Z
+    \end{tikzcd}
+  \end{center}
+  \caption{}
+  \label{diagram:strict_epi}
+\end{figure}
+
+\begin{remark}
+  \label{rem:strict_epi}
+  Strict epimorphisms are coequalizers, thus epimorphisms (as the name implies).
+\end{remark}
+
+\begin{remark}
+  \label{rem:strict_epi_plus_mono}
+  If an arrow is both a stric epimorphism and a monomorphism then it is an epimorphism.
+\end{remark}
+
 \end{document}
