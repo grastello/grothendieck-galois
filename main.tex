@@ -39,6 +39,7 @@
 \newtheorem{definition}[theorem]{Definition}
 \newtheorem{example}[theorem]{Example}
 \newtheorem{remark}[theorem]{Remark}
+\newtheorem{notation}[theorem]{Notation}
 
 \numberwithin{equation}{section}
 
@@ -73,7 +74,7 @@
 
 \begin{definition}
   \label{def:strit_epi}
-  In a category \(\cat{C}\) an arrow \(\fun{f}{X}{Y}\) is a \textbf{strict epimorphism} if it is the joint coequalizer of all the arrows it equalizes.
+  In a category \(\cat{C}\) an arrow \(\fun{f}{X}{Y}\) is a \textbf{strict epimorphism} if it is the joint coequalizer of all the arrows it coequalizes.
   This means that any arrow \(\fun{g}{X}{Z}\) such that \(g\circ x = g\circ y\) for any \(\fun{x,y}{C}{X}\) such that \(f\circ x = f\circ y\) there exists a unique arrow \(\fun{h}{Y}{Z}\) such that \(h\circ f = g\).
   Refer to Figure \ref{diagram:strict_epi}.
 \end{definition}
@@ -104,5 +105,43 @@
   Let \(H\) be a group, \(A\) an object of \(\cat{C}\) and \(G = \aut(A)\) the group of automorphisms of \(A\) in \(\cat{C}\) i.e. the group whose underlying set is the set of isomorphisms of type \(A\to A\) of \(\cat{C}\) and whose operation is composition in \(\cat{C}\).
   An \textbf{action} of \(H\) on \(A\) is a group homomorphism \(H \to G\).
 \end{definition}
+
+\begin{notation}
+  \label{not:action}
+  Given an action of a group \(H\) on an object \(A\) of \(\cat{C}\) we denote, with a slight abuse of notation, the automorphism of \(A\) associated to \(h\in H\) by the same symbol \(h\).
+\end{notation}
+
+\begin{definition}
+  \label{def:quotient}
+  If \(H\) acts on \(A\) as defined in \ref{def:action} we define the quotient of \(A\) by \(H\) in \(\cat{C}\) to be an element \(A/H\) of \(\cat{C}\) equipped with an arrow \(\fun{q}{A}{A/H}\) such that:
+  \begin{enumerate}
+  \item for all \(h\in H\) \(q\circ h = q\) holds,
+  \item for any \(\fun{x}{A}{X}\) such that \(x\circ h = x\) for all \(h\in H\) there exists a unique arrow \(\fun{\varphi}{A/H}{X}\) such that \(x = \varphi\circ q\).
+  \end{enumerate}
+  See also Figure \ref{diagram:quotient}.
+\end{definition}
+
+\begin{notation}
+  \label{not:quotient}
+  Sometimes we use the sentence ``the quotient of \(A\) by \(H\)'' to refer to the object \(A/H\), some others to the arrow \(\fun{q}{A}{A/H}\); the context should be enough to differentiate between the two cases.
+\end{notation}
+
+\begin{figure}[h]
+  \begin{center}
+    \begin{tikzcd}[sep=huge]
+      A \ar[loop left, "h"] \ar[r, "q"] \ar[rd, "x"] & A/H \ar[d, "\varphi"]\\
+      & X
+    \end{tikzcd}
+  \end{center}
+  \caption{}
+  \label{diagram:quotient}
+\end{figure}
+
+\begin{remark}
+  \label{rem:quotient_are_strict_epi}
+  Consider a quotient \(\fun{q}{A}{A/H}\); by condition (1) above \(q\circ h = q = q\circ 1_A\) so \(q\) coequalizes all the pairs \((h, 1_A)\), for \(h\in H\).
+  If another arrow \(\fun{x}{A}{X}\) coequalizes all the pairs that \(q\) does then this arrow is such that \(x\circ h = x\circ 1_A = x\) for all \(h\in H\) and thus, by condition (2), we have a unique factorization \(x = \varphi\circ q\).
+  This proves that all quotients are strict epimorphisms.
+\end{remark}
 
 \end{document}
