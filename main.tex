@@ -60,6 +60,7 @@
 \newcommand{\dual}[1]{#1^{\text{op}}}
 \newcommand{\aut}{\text{Aut}}
 \newcommand{\gset}{\text{\textbf{GSet}}}
+\newcommand{\fix}[1]{\text{Fix}(#1)}
 \newcommand{\fun}[3]{#1\colon #2\to #3}
 
 % Operators
@@ -155,5 +156,34 @@
   Let \(G\) be a group, \(\gset\) the category of \(G\)-sets and \(G\)-invariant maps and \(A\) an object of \(\gset\).
   In this category Definition \ref{def:quotient} yelds the familiar notion of the set of all orbits of an action: \(A/G\) is the set of orbits of \(A\).
 \end{remark}
+
+\begin{remark}
+  \label{rem:transitive_actions}
+  Consider again \(\gset\).
+  The underlying set of \(G\) (that we also denote as \(G\)) is a G-set with the action given by left multiplication in \(G\); we call this the \textbf{canonical action} of \(G\) on itself.
+  Let \(\fun{\varphi}{G}{E}\) be a G-invariant map; it is easy to see that such a \(\varphi\), by virtue of being G-invariant, is determined uniquely by the value \(\varphi(e)\), where \(e\) is the neutral element of \(G\).
+
+  Let now \(E\) be a transitive G-set i.e. a set upon which the action of \(G\) is transitive i.e. such that \(E/G = \{*\}\).
+  Fix an \(x\in E\) and let \(\varphi_x\) be the G-invarian map defined by \(\varphi_x(e) = x\); we argue that \(\fun{\varphi_x}{G}{E}\) makes \(E\) into a quotient of \(G\) by the subgroup
+  \[H = \fix{x} = \{g\in G\colon gx = x\}.\]
+  Indeed by using the definition of \(H\) and the fact that \(\varphi\) is G-invariant we have
+  \[(\varphi\circ h)(e) = \varphi(h(e)) = h(\varphi(e)) = h(x) = x.\]
+  for all \(h\in H\).
+  Moreover let \(\fun{g}{G}{F}\) satisfy (1) of Definition \ref{def:quotient}; as we discussed above \(g\) is entirely determined by the image of \(e\) so we obtain (2) defining an arrow \(\fun{f}{E}{F}\) by \(f(x) = g(e)\).
+  The situation is depicted in Figure \ref{diagram:transitive_actions}.
+
+  Trivially \(G\) is a transitive G-set and for any \(g\in G\) \(G/\fix{g}\) is transitive as well so we have that an object \(E\in\gset\) is transitive if and only if it is isomorphic to \(G/H\) where \(H = \fix{x}\) for (any) \(x\in E\).
+\end{remark}
+
+\begin{figure}
+  \begin{center}
+    \begin{tikzcd}[sep=huge]
+      G \ar[loop left, "h"] \ar[dr, "g"] \ar[r, "\varphi"] & E \cong G/H \ar[d, dashed, "f"]\\
+      & F
+    \end{tikzcd}
+  \end{center}
+  \caption{}
+  \label{diagram:transitive_actions}
+\end{figure}
 
 \end{document}
