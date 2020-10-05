@@ -57,6 +57,7 @@
 % Commands.
 \newcommand{\cat}[1]{\mathscr{#1}}
 \newcommand{\dual}[1]{#1^{\text{op}}}
+\newcommand{\aut}{\text{Aut}}
 \newcommand{\fun}[3]{#1\colon #2\to #3}
 
 % Operators
@@ -97,5 +98,11 @@
   \label{rem:strict_epi_plus_mono}
   If an arrow is both a stric epimorphism and a monomorphism then it is an epimorphism.
 \end{remark}
+
+\begin{definition}
+  \label{def:action}
+  Let \(H\) be a group, \(A\) an object of \(\cat{C}\) and \(G = \aut(A)\) the group of automorphisms of \(A\) in \(\cat{C}\) i.e. the group whose underlying set is the set of isomorphisms of type \(A\to A\) of \(\cat{C}\) and whose operation is composition in \(\cat{C}\).
+  An \textbf{action} of \(H\) on \(A\) is a group homomorphism \(H \to G\).
+\end{definition}
 
 \end{document}
