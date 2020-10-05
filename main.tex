@@ -1,0 +1,67 @@
+\documentclass[italian, 12pt, reqno]{article}
+\usepackage[english]{babel}
+\usepackage[T1]{fontenc}
+
+% Stylistic points.
+\usepackage{geometry}
+\geometry{
+  a4paper,
+  right=2.5cm,
+  left=2.5cm,
+  top=2.5cm,
+  bottom=2.5cm,
+  %showframe,
+}
+
+\usepackage{mathpazo} % Math Palatino font.
+
+% Links and references.
+\usepackage{xcolor}
+\definecolor{Myblue}{rgb}{0,0,0.6}
+\usepackage[a4paper,colorlinks,citecolor=Myblue,linkcolor=Myblue,urlcolor=Myblue,pdfpagemode=None]{hyperref}
+
+% Necessities for math.
+\usepackage{amsmath, amscd, amssymb, mathrsfs, accents, amsfonts, amsthm}
+
+\newtheoremstyle{myteo}{\topsep}{\topsep}
+	{}
+	{}
+	{\bfseries}
+        {.}
+	{2pt}
+	{\thmname{#1}\thmnumber{ #2}\thmnote{ (#3)}}
+\theoremstyle{myteo}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{remark}[theorem]{Remark}
+
+\numberwithin{equation}{section}
+
+\usepackage{tikz}
+\usetikzlibrary{cd}
+\usetikzlibrary{fadings}
+
+% Figures stuff.
+\usepackage{caption}
+\renewcommand{\thefigure}{\arabic{section}.\arabic{figure}}
+
+% Lists stuff.
+\usepackage{enumitem}
+\setenumerate{label=(\arabic*)}
+
+% Commands.
+\newcommand{\dual}[1]{#1^{\text{op}}}
+
+% Operators
+\DeclareMathOperator{\im}{im}
+
+\begin{document}
+\title{Grothendieck's Galois Theory}
+\author{Gabriele Rastello}
+\maketitle
+\end{document}
