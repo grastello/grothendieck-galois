@@ -60,8 +60,18 @@
 \newcommand{\dual}[1]{#1^{\text{op}}}
 \newcommand{\aut}{\text{Aut}}
 \newcommand{\gset}{\text{\textbf{GSet}}}
+\newcommand{\tgset}{\text{\textbf{GSet}}^t}
 \newcommand{\fix}[1]{\text{Fix}(#1)}
-\newcommand{\fun}[3]{#1\colon #2\to #3}
+\newcommand{\homs}[2]{[#1, #2]}
+\newcommand{\fun}[3]{#1\colon#2\to #3}
+\newcommand{\nonamefundef}[4]{\begin{align*}
+                             \begin{tikzcd}[sep=large]#1\end{tikzcd} &\longrightarrow \begin{tikzcd}[sep=large]#2\end{tikzcd}\\
+                             \begin{tikzcd}[sep=large]#3\end{tikzcd} &\longmapsto \begin{tikzcd}[sep=large]#4\end{tikzcd}
+                           \end{align*}}
+\newcommand{\fundef}[5]{\begin{align*}
+                             #1\colon\begin{tikzcd}[sep=large]#2\end{tikzcd} &\longrightarrow \begin{tikzcd}[sep=large]#3\end{tikzcd}\\
+                             \begin{tikzcd}[sep=large]#4\end{tikzcd} &\longmapsto \begin{tikzcd}[sep=large]#5\end{tikzcd}
+\end{align*}}
 
 % Operators
 \DeclareMathOperator{\im}{im}
@@ -185,5 +195,22 @@
   \caption{}
   \label{diagram:transitive_actions}
 \end{figure}
+
+For the rest of the section fix a category \(\cat{C}\), an object \(A\in\cat{C}\) and let \(G = \aut(A)\).
+
+\begin{proposition}
+  \label{prop:action_hom_set}
+  Consider a subgroup \(H\leq G\) and an object \(X\in\cat{C}\). \(H\) acts on the hom-set \([A, X]\) as follows\footnote{Since an action as of Definition \ref{def:action} is a map that sends elements of a group to arrows it is, in this case, equivalent to give the definition of an action by uncurrying.}:
+  \nonamefundef{H\times [A, X]}{[A, X]}{(h, x)}{h\cdot x = x \circ h.}
+\end{proposition}
+
+\begin{remark}
+  \label{rem:hom_functor}
+  Assume that the action \(G\times [A, X] \to [A, X]\) is transitive and let \(\tgset\) be the category of transitive \(G\)-sets (a subcategory of \(Gset\)).
+  Then we have a functor
+  \fundef{[A, -]_G}{\cat{C}}{\tgset}{X \ar[d, "f"] \\ Y}{\homs{A}{X}_G \ar[d, "f_*"] \\ \homs{A}{Y}_G}
+  where we indicate with \(\homs{A}{X}_G\) the hom-set \([A, X]\) upon which \(G\) acts as described in Proposition \ref{prop:action_hom_set} and \(f_*\) is post-composition with \(f\).
+  It is easy to check that \(f_*\) is indeed \(G\)-invariant.
+\end{remark}
 
 \end{document}
