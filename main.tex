@@ -226,7 +226,7 @@ For the rest of the section fix a category \(\cat{C}\), an object \(A\in\cat{C}\
 
   This gives us, for each \(X\in\cat{C}\) and \(E\in\tgset\), a bijection
   \[[A/H, X] \cong \tgset(E, [A, X]_G)\]
-  natural in \(X\) in \(E\) (\textbf{really?}).
+  natural in \(X\) in \(E\) (see Section \ref{sec:appendixes}).
   Thus, if \(\cat{C}\) has quotients of \(A\) by subgroups of \(G\) we have an adjunction \(A\times_G - \dashv \homs{A}{-}_G\) where \(A\times_GE = A/H\) for \(H = \fix{x_0}\) and \(x_0\in E\) as above\footnote{We use the notation \(A\times_G-\) for the left adjoint in ``honor'' of the tensor-hom adjunction.}.
 \end{remark}
 
@@ -246,5 +246,34 @@ For the rest of the section fix a category \(\cat{C}\), an object \(A\in\cat{C}\
 \end{figure}
 
 Our main problem will be that of finding conditions on \(\cat{C}\) that make this adjunction into an equivalence of categories.
+
+\section{Appendixes}
+\label{sec:appendixes}
+
+\subsection{Naturality of \(\homs{A/H}{X} \cong \tgset(E, \homs{A}{X}_G)\)}
+Fix a category \(\cat{C}\), an element \(A\in\cat{C}\) and let \(G = \aut(A)\).
+Let's indicate with \(\psi_{EX}\) the bijection between \(\homs{A/H}{X}\) and \(\tgset(E, \homs{A}{X}_G)\) described in Remark \ref{rem:adjoints}; we shall prove that it is natural in both \(X\in\cat{C}\) and \(E\in\tgset\).
+
+\begin{proof}[Naturality in \(X\)]
+  \label{proof:naturality_in_X}
+  Given an arrow \(\fun{f}{X}{Y}\) of \(\cat{C}\) we want to prove that \(\psi_{EX}\) is a natural transformation \(\homs{A/H}{-}\Rightarrow \tgset(E, \homs{A}{-}_G)\) i.e that the following diagram commutes.
+  \begin{center}
+    \begin{tikzcd}[sep=huge]
+      \homs{A/H}{X} \ar[r, "\psi_{EX}"] \ar[d, "f_*"] & \tgset(E, \homs{A}{X}_G) \ar[d, "(f_*)_*"] \\
+      \homs{A/H}{Y} \ar[r, "\psi_{EY}"] & \tgset(E, \homs{A}{Y}_G)
+    \end{tikzcd}
+  \end{center}
+  Recall that here \(H = \fix{x_0}\) for \(x_0\in E\).
+  Pick any \(x\in \homs{A/H}{X}\) and let \(\fun{q}{A}{A/H}\) be the quotient arrow (the quotient exists because \(\cat{C}\) is assumed to have all quotients by subgroups of \(G\)); then chasing \(x\) through the diagram down the two possible ways yields two arrows in \(\tgset\) of type \(E\to\homs{A}{Y}_G\).
+  Since \(E\) is transitive we have \(E \cong G/H\) and this means that arrows of type \(E\to\homs{A}{Y}_G\) are determined uniquely by the image of \(e\in E \cong G/H\) (refer to the right part of Diagram \ref{diagram:bijection}).
+  Keeping this in mind the following computations shows that the square commutes.
+  \[((f_*)_*\circ \psi_{EX})(x)(e) = (f_*\circ \psi_{EX}(x))(e) = f_*(\psi_{EX}(x)(e)) = f_*(x \circ q) = f\circ x\circ q,\]
+  \[(\psi_{EY}\circ f_*)(x)(e) = \psi_{EX}(f\circ x)(e) = f\circ x\circ q.\]
+\end{proof}
+
+\begin{proof}[Naturality in \(E\)]
+  \label{proof:naturality_in_X}
+  
+\end{proof}
 
 \end{document}
