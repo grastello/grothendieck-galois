@@ -213,4 +213,38 @@ For the rest of the section fix a category \(\cat{C}\), an object \(A\in\cat{C}\
   It is easy to check that \(f_*\) is indeed \(G\)-invariant.
 \end{remark}
 
+\begin{remark}
+  \label{rem:adjoints}
+  Consider an object \(E\in\tgset\), pick an element \(x_0\in E\) and let \(H = \fix{x_0}\leq G\) (the choice of \(x_0\) is irrelevant as \(E\) is transitive).
+  Moreover assume that \(\cat{C}\) has quotients of \(A\) by any subgroup of \(G\).
+
+  By what we observed in Remark \ref{rem:transitive_actions} we have a bijection between elements of \(E\) and arrows of type \(G\to E\).
+  Consider then \(f\in\homs{A}{X}\) and its corresponding arrow \(\fun{\varphi}{G}{\homs{A}{X}_G}\); we claim that \(f\) factors through \(A/H\) if and only if \(\varphi\) factors through \(E \cong G/H\) (see Figure \ref{diagram:bijection}).
+  Indeed \(f\) factors if and only if \(f\circ h = f\) for all \(h\in H\), by using the fact that \(\varphi\) is \(G\)-invariant we obtain
+  \[\varphi(h(e)) = h(\varphi(e)) = h(f) = f\circ h = f\]
+  and, since \(\varphi\) is uniquely determined by \(\varphi(e)\),  \(\varphi\circ h =\varphi\) for all \(h\in H\); this happens if and only if \(\varphi\) factors through \(E\cong G/H\).
+
+  This gives us, for each \(X\in\cat{C}\) and \(E\in\tgset\), a bijection
+  \[[A/H, X] \cong \tgset(E, [A, X]_G)\]
+  natural in \(X\) in \(E\) (\textbf{really?}).
+  Thus, if \(\cat{C}\) has quotients of \(A\) by subgroups of \(G\) we have an adjunction \(A\times_G - \dashv \homs{A}{-}_G\) where \(A\times_GE = A/H\) for \(H = \fix{x_0}\) and \(x_0\in E\) as above\footnote{We use the notation \(A\times_G-\) for the left adjoint in ``honor'' of the tensor-hom adjunction.}.
+\end{remark}
+
+\begin{figure}[h]
+  \begin{center}
+    \begin{tikzcd}[sep=huge]
+      A \ar[loop left, "h"] \ar[r, ""] \ar[dr, "f"] & A/H \ar[d, dashed, ""]\\
+      & X
+    \end{tikzcd}\hspace{2cm}
+    \begin{tikzcd}[sep=huge]
+      G \ar[loop left, "h"] \ar[r, ""] \ar[dr, "\varphi"] & E\cong G/H \ar[d, dashed, ""]\\
+      & \homs{A}{X}_G
+    \end{tikzcd}
+  \end{center}
+  \caption{}
+  \label{diagram:bijection}
+\end{figure}
+
+Our main problem will be that of finding conditions on \(\cat{C}\) that make this adjunction into an equivalence of categories.
+
 \end{document}
