@@ -256,7 +256,7 @@ Let's indicate with \(\psi_{EX}\) the bijection between \(\homs{A/H}{X}\) and \(
 
 \begin{proof}[Naturality in \(X\)]
   \label{proof:naturality_in_X}
-  Given an arrow \(\fun{f}{X}{Y}\) of \(\cat{C}\) we want to prove that \(\psi_{EX}\) is a natural transformation \(\homs{A/H}{-}\Rightarrow \tgset(E, \homs{A}{-}_G)\) i.e that the following diagram commutes.
+  Given an arrow \(\fun{f}{X}{Y}\) of \(\cat{C}\) we want to prove that \(\psi_{EX}\) are the components of a natural transformation \(\homs{A/H}{-}\Rightarrow \tgset(E, \homs{A}{-}_G)\) i.e that the following diagram commutes.
   \begin{center}
     \begin{tikzcd}[sep=huge]
       \homs{A/H}{X} \ar[r, "\psi_{EX}"] \ar[d, "f_*"] & \tgset(E, \homs{A}{X}_G) \ar[d, "(f_*)_*"] \\
@@ -272,8 +272,24 @@ Let's indicate with \(\psi_{EX}\) the bijection between \(\homs{A/H}{X}\) and \(
 \end{proof}
 
 \begin{proof}[Naturality in \(E\)]
-  \label{proof:naturality_in_X}
-  
+  \label{proof:naturality_in_E}
+  We want to prove that \(\psi_{EX}\) are the components of a natural transformation \(\homs{A/-}{X}\Rightarrow\tgset(-, \homs{A}{X}_G)\), but before drawing the naturality square as above we shall note that this case is slightly complicated by the fact that it is not immediately clear how the functor \(\homs{A/-}{X}\) acts on arrows.
+  Indeed let \(\fun{f}{E\cong G/H}{F\cong G/H'}\) be an arrow of \(\tgset\) with \(H = \fix{x_0}, H' = \fix{f(x_0)}\) and \(x_0\in E\); these choices are justified by the fact that both \(E\) and \(F\) are transitive \(G\)-sets.
+  Now notice that, for \(h\in H\), \(f(h\cdot x_0) = f(x_0)\) by definition of \(H\) and \(f(h\cdot x_0) = h\cdot f(x_0)\) by \(G\)-invariance of \(f\); thus \(h\in H'\) and thus \(H\subset H'\).
+  This means that if we let \(\fun{q}{A}{A/H}, \fun{q'}{A}{A/H'}\) be the quotients in \(\cat{C}\) then there is a unique arrow \(\fun{\widetilde{f}}{A/H}{A/H'}\) such that \(\widetilde{f}\circ q = q'\).
+  The functor \(\homs{A/-}{X}\) then sends the arrow \(\fun{f}{E}{F}\) to \(\fun{\widetilde{f}^*}{\homs{A/H'}{X}}{\homs{A/H}{X}}\).
+
+  Now we want to prove the naturality of the following square.
+  \begin{center}
+    \begin{tikzcd}[sep=huge]
+      \homs{A/H}{X} \ar[r, "\psi_{EX}"] & \tgset(E, \homs{A}{X}_G) \\
+      \homs{A/H'}{X} \ar[r, "\psi_{FX}"] \ar[u, "\widetilde{f}^*"] & \gset(F, \homs{A}{X}_G) \ar[u, "f^*"]
+    \end{tikzcd}
+  \end{center}
+  As before we chase a \(x\in\homs{A/H'}{X}\) down the two possible paths to get two arrows of type \(E\to\homs{A}{X}_G\) and prove that they are the same by evaluating them on \(e\in E\):
+  \[(\psi_{EX}\circ \widetilde{f}^*)(x)(e) = \psi_{EX}(x\circ \widetilde{f})(e) = x\circ \widetilde{f}\circ q = x\circ q',\]
+  \[(f^*\circ \psi_{FX})(x)(e) = (\psi_{FX}(x)\circ f)(e) = \psi_{FX}(x)(f(e)) = \psi_{FX}(x)(e) = x\circ q'.\]
+  Note that we used that \(f(e) = e\), this holds because the action of \(G\) on \(G/H \cong E\) and \(G/H'\cong F\) is just left multiplication and \(f\) is \(G\)-invariant.
 \end{proof}
 
 \end{document}
