@@ -245,7 +245,7 @@ For the rest of the section fix a category \(\cat{C}\), an object \(A\in\cat{C}\
   \label{diagram:bijection}
 \end{figure}
 
-Our main problem will be that of finding conditions on \(\cat{C}\) that make this adjunction into an equivalence of categories.
+Our main problem will be that of finding conditions on \(\cat{C}\) that make this adjunction ineto an equivalence of categories.
 
 \section{Categorial axiomatization of Galois Theory}
 \label{sec:axioms}
@@ -261,6 +261,26 @@ Through this section fix a category \(\cat{C}\) and an object \(A\in\cat{C}\).
   \item Every endomorphism of \(A\) is an isomorphism i.e. \(\homs{A}{A} = \aut(A)\).
   \end{enumerate}
 \end{definition}
+
+\begin{remark}
+  \label{rem:all_strict_epi}
+  It is known that if \(f\circ g\) is a strict epimorphism then so is \(g\).
+  Thus it follows from Axiom (1) that every arrow \(X\to Y\) in \(\cat{C}\) is a strict epimorphism.
+\end{remark}
+
+\begin{proposition}
+  \label{prop:hom_is_faithful}
+  Axiom (1) implies that \(\homs{A}{-}\) is faithful, reflects monomorphisms and isomorphisms.
+\end{proposition}
+
+\begin{proof}
+  Consider arrows \(\fun{f,g}{X}{Y}\in\cat{C}\) such that \(\homs{A}{f} = \homs{A}{g}\); that is \(f_* = g_*\).
+  By Axiom (1) let \(\fun{h}{A}{X}\) be a third arrow of \(\cat{C}\) then we have \(f_*(h) = g_*(h)\) i.e. \(f\circ h = g\circ h\).
+  Again by Axiom (1) \(h\) is an epimorphism (really, a strong one) and thus we obtain \(f = g\); that is: \(\homs{A}{-}\) is faithful.
+  
+  It is well known that every faithful functor reflects monomorphisms.
+  Because of this if \(f\in\gset\) is an isomorphism and \(g\in\cat{C}\) is such that \(\homs{A}{g} = f\) then \(g\) is a monomorphism too; but, as an arrow of \(\cat{C}\), \(g\) is also a strict epimorphism and thus an isomorphism.
+\end{proof}
 
 \section{Appendixes}
 \label{sec:appendixes}
