@@ -305,6 +305,24 @@ Through this section fix a category \(\cat{C}\) and an object \(A\in\cat{C}\).
   Indeed by taking \(g = 1_A\) in (i) we obtain that \(f = h\) for some \(h\in H\).
 \end{remark}
 
+\begin{remark}
+  \label{rem:axiom2}
+  Consider an arrow \(\fun{x}{A}{X}\) and the epi-mono factorization \(x_* = \psi\circ \rho\)\footnote{We recall that \(\gset\) is a topos and, as such, has epi-mono factorization.}.
+  With reference to the diagram below Axiom (iii) implies that \(I = \homs{A}{A}/H\) with \(H = \fix{x}\leq G\).
+
+  \begin{center}
+    \begin{tikzcd}[sep=huge]
+      \homs{A}{A} \ar[rr, bend left, "x_*"] \ar[r, "\rho"] & I \ar[r, "\psi"] & \homs{A}{X}
+    \end{tikzcd}
+  \end{center}
+
+  Indeed by Axiom (iii) \(\homs{A}{A} = \aut(A) = G\) so an \(h\in H\) acts on \(\homs{A}{A}\) by left multiplication.
+  Given \(f\in\homs{A}{A}\) we have
+  \[(\psi\circ \rho\circ h)(f) = x_*(h\circ f) = x\circ h\circ f = x\circ f = x_*(f) = (\psi\circ \rho)(f)\]
+  that is \(\psi\circ\rho\circ h = \psi\circ\rho\) which, by monicness of \(\psi\), implies \(\rho\circ h = \rho\).
+  Moreover as \(I\) is the image of \(x_*\) it is unique up to isomorphism and thus \(\rho\) is really a quotient arrow; \(I = \homs{A}{A}/H\).
+\end{remark}
+
 \section{Appendixes}
 \label{sec:appendixes}
 
