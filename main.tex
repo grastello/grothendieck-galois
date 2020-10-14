@@ -323,6 +323,37 @@ Through this section fix a category \(\cat{C}\) and an object \(A\in\cat{C}\).
   Moreover as \(I\) is the image of \(x_*\) it is unique up to isomorphism and thus \(\rho\) is really a quotient arrow; \(I = \homs{A}{A}/H\).
 \end{remark}
 
+\begin{proposition}
+  \label{prop:epsilon_iso}
+  Any arrow \(\fun{x}{A}{X}\) of \(\cat{C}\) is a quotient of \(A\) by \(H = \fix{x}\leq G\) (with respect to the action on \(\homs{A}{X}\) described in Proposition \ref{prop:action_hom_set}) i.e. \(X = A/H\).
+\end{proposition}
+
+\begin{proof}
+  By choosing \(H = \fix{x}\) we get \(x\circ h = x\) for all \(h\in H\) and thus there is a unique arrow \(\fun{\varepsilon}{A/H}{X}\) of \(\cat{C}\) such that \(x = \varepsilon\circ q\), where \(\fun{q}{A}{A/H}\) is the quotient of \(A\) by \(H\).
+  Graphically:
+
+  \begin{center}
+    \begin{tikzcd}[sep=huge]
+      A \ar[rr, bend left, "x"] \ar[r, "q"] & A/H \ar[r, "\varepsilon"] & X
+    \end{tikzcd}.
+  \end{center}
+
+  Now by applying \(\homs{A}{-}\) to the diagram above we obtain
+
+  \begin{center}
+    \begin{tikzcd}[sep=huge]
+      \homs{A}{A} \ar[rr, bend left, "x_*"] \ar[r, "q_*"] \ar[dr, bend right, "\rho"] & \homs{A}{A/H} \ar[r, "\varepsilon_*"] & \homs{A}{X}\\
+      & \homs{A}{A}/H \ar[u, "\eta"] \ar[ru, bend right, "\psi"] &
+    \end{tikzcd}
+  \end{center}
+  where \(\rho, \psi\) and \(\eta\) are as discussed before.
+  We now have
+  \[\varepsilon_*\circ \eta\circ\rho = \varepsilon_*\circ q_* = x_* = \psi\circ \rho\]
+  that by epicness of \(\rho\) implies \(\varepsilon_*\circ \eta = \psi\).
+  Now \(\varepsilon_*\) must be monic since \(\psi\) and \(\eta\) are; but this, by Proposition \ref{prop:hom_is_faithful}, implies that \(\varepsilon\in\cat{C}\) is monic too.
+  Being an arrow of \(\cat{C}\), by Axiom (i), \(\varepsilon\) is also a strict epimorphism and thus an isomorphism.
+\end{proof}
+
 \section{Appendixes}
 \label{sec:appendixes}
 
