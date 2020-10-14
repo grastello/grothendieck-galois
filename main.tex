@@ -282,6 +282,29 @@ Through this section fix a category \(\cat{C}\) and an object \(A\in\cat{C}\).
   Because of this if \(f\in\gset\) is an isomorphism and \(g\in\cat{C}\) is such that \(\homs{A}{g} = f\) then \(g\) is a monomorphism too; but, as an arrow of \(\cat{C}\), \(g\) is also a strict epimorphism and thus an isomorphism.
 \end{proof}
 
+\begin{remark}
+  \label{rem:axiom1}
+  Consider \(H\leq G\) and the quotient \(\fun{q}{A}{A/H}\) in \(\cat{C}\), then \(\fun{q_*}{\homs{A}{A}}{\homs{A}{A/H}}\) in \(\gset\) is a quotient too because quotients are preserved by \(\homs{A}{-}\) (Axiom (2)).
+  Thus we have \(\homs{A}{A}/H \cong \homs{A}{A/H}\), and the following diagram commutes (where \(\rho\) is a quotient arrow and \(\eta\) the isomorphism).
+
+  \begin{center}
+    \begin{tikzcd}[sep=huge]
+      \homs{A}{A} \ar[r, "\rho"] \ar[rr, bend left, "q_*"] & \homs{A}{A}/H \ar[r, "\eta"] & \homs{A}{A/H}
+    \end{tikzcd}
+  \end{center}
+
+  The fact that \(\eta\) is a bijections gives us the following:
+  \begin{enumerate}
+  \item[(i)] for \(f, g\in \homs{A}{A}\) if \(q\circ f = q\circ g\) then there is some \(h\in H\) such taht \(f = h\circ g\),
+  \item[(ii)] for all \(\fun{x}{A}{A/H}\) there is an arrow \(f\in\homs{A}{A}\) such that \(q\circ f = x\).
+  \end{enumerate}
+  Moreover, under Axiom (3), (i) implies the following:
+  \begin{enumerate}
+  \item[(iii)] \(q\circ f = q\) implies \(f\in H\).
+  \end{enumerate}
+  Indeed by taking \(g = 1_A\) in (i) we obtain that \(f = h\) for some \(h\in H\).
+\end{remark}
+
 \section{Appendixes}
 \label{sec:appendixes}
 
