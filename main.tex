@@ -287,13 +287,17 @@ Through this section fix a category \(\cat{C}\) and an object \(A\in\cat{C}\).
   Consider \(H\leq G\) and the quotient \(\fun{q}{A}{A/H}\) in \(\cat{C}\), then \(\fun{q_*}{\homs{A}{A}}{\homs{A}{A/H}}\) in \(\gset\) is a quotient too because quotients are preserved by \(\homs{A}{-}\) (Axiom (2)).
   Thus we have \(\homs{A}{A}/H \cong \homs{A}{A/H}\), and the following diagram commutes (where \(\rho\) is a quotient arrow and \(\eta\) the isomorphism).
 
-  \begin{center}
-    \begin{tikzcd}[sep=huge]
-      \homs{A}{A} \ar[r, "\rho"] \ar[rr, bend left, "q_*"] & \homs{A}{A}/H \ar[r, "\eta"] & \homs{A}{A/H}
-    \end{tikzcd}
-  \end{center}
+  \begin{figure}
+    \begin{center}
+      \begin{tikzcd}[sep=huge]
+        \homs{A}{A} \ar[r, "\rho"] \ar[rr, bend left, "q_*"] & \homs{A}{A}/H \ar[r, "\eta"] & \homs{A}{A/H}
+      \end{tikzcd}
+    \end{center}
+    \caption{}
+    \label{diagram:eta}
+  \end{figure}
 
-  The fact that \(\eta\) is a bijections gives us the following:
+  The fact that \(\eta\) is a bijection gives us the following:
   \begin{enumerate}
   \item[(i)] for \(f, g\in \homs{A}{A}\) if \(q\circ f = q\circ g\) then there is some \(h\in H\) such taht \(f = h\circ g\),
   \item[(ii)] for all \(\fun{x}{A}{A/H}\) there is an arrow \(f\in\homs{A}{A}\) such that \(q\circ f = x\).
@@ -332,20 +336,28 @@ Through this section fix a category \(\cat{C}\) and an object \(A\in\cat{C}\).
   By choosing \(H = \fix{x}\) we get \(x\circ h = x\) for all \(h\in H\) and thus there is a unique arrow \(\fun{\varepsilon}{A/H}{X}\) of \(\cat{C}\) such that \(x = \varepsilon\circ q\), where \(\fun{q}{A}{A/H}\) is the quotient of \(A\) by \(H\).
   Graphically:
 
-  \begin{center}
-    \begin{tikzcd}[sep=huge]
-      A \ar[rr, bend left, "x"] \ar[r, "q"] & A/H \ar[r, "\varepsilon"] & X
-    \end{tikzcd}.
-  \end{center}
+  \begin{figure}
+    \begin{center}
+      \begin{tikzcd}[sep=huge]
+        A \ar[rr, bend left, "x"] \ar[r, "q"] & A/H \ar[r, "\varepsilon"] & X
+      \end{tikzcd}.
+    \end{center}
+    \caption{}
+    \label{diagram:varepsilon}
+  \end{figure}
 
   Now by applying \(\homs{A}{-}\) to the diagram above we obtain
 
-  \begin{center}
-    \begin{tikzcd}[sep=huge]
-      \homs{A}{A} \ar[rr, bend left, "x_*"] \ar[r, "q_*"] \ar[dr, bend right, "\rho"] & \homs{A}{A/H} \ar[r, "\varepsilon_*"] & \homs{A}{X}\\
-      & \homs{A}{A}/H \ar[u, "\eta"] \ar[ru, bend right, "\psi"] &
-    \end{tikzcd}
-  \end{center}
+  \begin{figure}
+    \begin{center}
+      \begin{tikzcd}[sep=huge]
+        \homs{A}{A} \ar[rr, bend left, "x_*"] \ar[r, "q_*"] \ar[dr, bend right, "\rho"] & \homs{A}{A/H} \ar[r, "\varepsilon_*"] & \homs{A}{X}\\
+        & \homs{A}{A}/H \ar[u, "\eta"] \ar[ru, bend right, "\psi"] &
+      \end{tikzcd}
+    \end{center}
+    \caption{}
+    \label{diagram:big_diagram}
+  \end{figure}
   where \(\rho, \psi\) and \(\eta\) are as discussed before.
   We now have
   \[\varepsilon_*\circ \eta\circ\rho = \varepsilon_*\circ q_* = x_* = \psi\circ \rho\]
@@ -355,19 +367,32 @@ Through this section fix a category \(\cat{C}\) and an object \(A\in\cat{C}\).
 \end{proof}
 
 \begin{proposition}
-  \label{prop:preservation_of_strict_epi}
-  \(\homs{A}{-}\) preserves strict epimorphisms.
-\end{proposition}
-
-\begin{proof}
-  By Axiom (1) we only need to consider the case \(\fun{x}{A}{X}\) (that are all strict epimorphisms).
-  By Proposition \ref{prop:epsilon_iso} \(x\) is a quotient and \(\homs{A}{-}\) preserves quotients by Axiom (2), moreover we know all quotients are strict epis.
-\end{proof}
-
-\begin{proposition}
   \label{prop:transitive_action}
   The action of \(\text{Aut}(A)\) on \(\homs{A}{X}\) is transitive for all \(X\in\cat{C}\).
 \end{proposition}
+
+\begin{proof}
+  Consider again Figure \ref{diagram:big_diagram}.
+  We proved that \(\varepsilon\) is an isomorphism and thus \(\varepsilon_*\) must be one too.
+  Moreover from Remark \ref{rem:axiom1} we know \(\eta\) is iso too and so we have \(\homs{A}{X}\cong \homs{A}{A}/H\), but by Axiom (3) \(\homs{A}{A} = \text{Aut}(A)\) and so we have that \(\homs{A}{X}\) is transitive.
+  %% From Proposition \ref{prop:epsilon_iso} given \(\fun{x}{A}{X}\in\cat{C}\) we have \(X\cong A/H\) with \(H = \text{Fix}(x) \leq \text{Aut}(A)\).
+  %% By Axiom (2) \(\homs{A}{A/H} \cong \homs{A}{A}/H\) and finally, via Axiom (3), \(\homs{A}{X} \cong \text{Aut}(A)/H\), a transitive \(\text{Aut}(A)\)-set.
+\end{proof}
+
+\begin{theorem}
+  \label{theo:galois}
+  Given a category \(\cat{C}\) and an object \(A\in\cat{C}\) such that Axioms (1), (2) and (3) hold there exists an adjunction
+  \[A\times_G- \dashv \homs{A}{-}_G\]
+  where \(G = \text{Aut}(A)\) such that the maps
+  \[\fun{\eta}{E\cong \homs{A}{A}/H}{\homs{A}{A/H}}\]
+  \[\fun{\varepsilon}{A/H}{X}\]
+  are isomorphisms.
+  This enstablishes an equivalence of categories between \(\cat{C}\) and \(\tgset\).
+\end{theorem}
+
+\begin{proof}
+  The existence of the adjunction follows from the discussion in Section \ref{sec:1}, the fact that \(\eta\) and \(\varepsilon\) are (the components of) the unit and counit of the andjunction is a calculation that has been moved to the appendix and the fact that they are isomorphisms follows respectively from Remark \ref{rem:axiom1} and Proposition \ref{prop:epsilon_iso}.
+\end{proof}
 
 \section{Appendixes}
 \label{sec:appendixes}
@@ -412,6 +437,32 @@ Let's indicate with \(\psi_{EX}\) the bijection between \(\homs{A/H}{X}\) and \(
   \[(\psi_{EX}\circ \widetilde{f}^*)(x)(e) = \psi_{EX}(x\circ \widetilde{f})(e) = x\circ \widetilde{f}\circ q = x\circ q',\]
   \[(f^*\circ \psi_{FX})(x)(e) = (\psi_{FX}(x)\circ f)(e) = \psi_{FX}(x)(f(e)) = \psi_{FX}(x)(e) = x\circ q'.\]
   Note that we used that \(f(e) = e\), this holds because the action of \(G\) on \(G/H \cong E\) and \(G/H'\cong F\) is just left multiplication and \(f\) is \(G\)-invariant.
+\end{proof}
+
+\subsection{\(\eta\) and \(\varepsilon\) are the unit and counit of \(A\times_G- \dashv \homs{A}{-}_G\)}
+
+\begin{proof}[\(\eta\) is the unit]
+  Our adjunction is given by the bijection
+  \[\psi\colon\cat{C}(A\times_G E, X)\cong\tgset(E, \homs{A}{X}_G)\]
+  natural in \(X\in\cat{C}\) and \(E\in\tgset\).
+  To obtain the unit we set \(X = A\times_G E\):
+  \[\cat{C}(A\times_G E, A\times_G E)\cong\tgset(E, \homs{A}{A\times_G E}_G)\]
+  and so
+  \[\cat{C}(A/H, A/H)\cong\tgset(E, \homs{A}{A/H}_G)\]
+  where \(H = \text{Fix}(x)\leq G\) (\(x\in E\)) by definition of \(A\times_G E\).
+  Now (the component at \(E\) of) the unit is given by the image of \(1_{A/H}\) under this bijection.
+  By the discussion in Section \ref{sec:1} if \(\fun{q}{A}{A/H}\) is the quotient arrow in \(\cat{C}\) then \(\psi(1_{A/H})\) is the map \(E\cong\homs{A}{A}_G/H \to \homs{A}{A/H}_G\) of \(\tgset\) that factors the map \(G\to E\) that sends \(e\) to \(q\).
+  But this last map is \(q^*\) as in Figure \ref{diagram:eta}.
+\end{proof}
+
+\begin{proof}[\(\varepsilon\) is the counit]
+  Keeping the proof above in mind we set \(E = \homs{A}{X}\) and obtain
+  \[\psi\colon \cat{C}(A\times_G\homs{A}{X}, X) \cong \tgset(\homs{A}{X}_G, \homs{A}{X}_G)\]
+  that becomes
+  \[\cat{C}(A/H, X) \cong \tgset(\homs{A}{X}_G, \homs{A}{X}_G)\]
+  with \(H = \text{Fix}(x)\) for some \(x\in\homs{A}{X}\).
+  Notice that since \(\homs{A}{X}\cong G/H\) by Proposition \ref{prop:transitive_action} we can consider \(1_{\homs{A}{X}}\) as a map of type \(G/H \to \homs{A}{X}\) such that \(1_{\homs{A}{X}}(e) = x\) (this can be obtained by chasing \(1_A\) around Figure \ref{diagram:big_diagram} keeping in mind that \(\varepsilon_*\) there is iso).
+  Now we have that \(\psi^{-1}(1_{\homs{A}{X}})\) is the arrow \(A/H\to X\) of \(\cat{C}\) that factorizes \(x\) i.e. \(\varphi^{-1}(1_{\homs{A}{X}}) = \varepsilon\) as in Figure \ref{diagram:varepsilon}.
 \end{proof}
 
 \end{document}
