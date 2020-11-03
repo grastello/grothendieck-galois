@@ -264,7 +264,7 @@ Through this section fix a category \(\cat{C}\) and an object \(A\in\cat{C}\).
 
 \begin{remark}
   \label{rem:all_strict_epi}
-  It is known that if \(f\circ g\) is a strict epimorphism then so is \(g\).
+  It is known that if \(f\circ g\) is a strict epimorphism then so is \(f\).
   Thus it follows from Axiom (1) that every arrow \(X\to Y\) in \(\cat{C}\) is a strict epimorphism.
 \end{remark}
 
@@ -353,6 +353,21 @@ Through this section fix a category \(\cat{C}\) and an object \(A\in\cat{C}\).
   Now \(\varepsilon_*\) must be monic since \(\psi\) and \(\eta\) are; but this, by Proposition \ref{prop:hom_is_faithful}, implies that \(\varepsilon\in\cat{C}\) is monic too.
   Being an arrow of \(\cat{C}\), by Axiom (i), \(\varepsilon\) is also a strict epimorphism and thus an isomorphism.
 \end{proof}
+
+\begin{proposition}
+  \label{prop:preservation_of_strict_epi}
+  \(\homs{A}{-}\) preserves strict epimorphisms.
+\end{proposition}
+
+\begin{proof}
+  By Axiom (1) we only need to consider the case \(\fun{x}{A}{X}\) (that are all strict epimorphisms).
+  By Proposition \ref{prop:epsilon_iso} \(x\) is a quotient and \(\homs{A}{-}\) preserves quotients by Axiom (2), moreover we know all quotients are strict epis.
+\end{proof}
+
+\begin{proposition}
+  \label{prop:transitive_action}
+  The action of \(\text{Aut}(A)\) on \(\homs{A}{X}\) is transitive for all \(X\in\cat{C}\).
+\end{proposition}
 
 \section{Appendixes}
 \label{sec:appendixes}
