@@ -412,11 +412,7 @@ Let's indicate with \(\psi_{EX}\) the bijection between \(\homs{A/H}{X}\) and \(
   \end{center}
   Recall that here \(H = \fix{x_0}\) for \(x_0\in E\).
   Pick any \(x\in \homs{A/H}{X}\) and let \(\fun{q}{A}{A/H}\) be the quotient arrow (the quotient exists because \(\cat{C}\) is assumed to have all quotients by subgroups of \(G\)); then chasing \(x\) through the diagram down the two possible ways yields two arrows in \(\tgset\) of type \(E\to\homs{A}{Y}_G\).
-  Since \(E\) is transitive we have \(E \cong G/H\) and this means that arrows of type \(E\to\homs{A}{Y}_G\) are determined uniquely by the image of \(e\in E \cong G/H\) (refer to the right part of Diagram \ref{diagram:bijection}).
-  Keeping this in mind the following computations show that the square commutes.
-  \[((f_*)_*\circ \psi_{EX})(x)(e) = (f_*\circ \psi_{EX}(x))(e) = f_*(\psi_{EX}(x)(e)) = f_*(x \circ q) = f\circ x\circ q,\]
-  \[(\psi_{EY}\circ f_*)(x)(e) = \psi_{EX}(f\circ x)(e) = f\circ x\circ q.\]
-
+  Since \(E\) is transitive arrows out of \(E\) are determined uniquely by the image of \(x_0\); keeping this in mind the following computations show that the square commutes.
   \[((f_*)_*\circ \psi_{EX})(x)(x_0) = (f_*\circ \psi_{EX}(x))(x_0) = f_*(\psi_{EX}(x)(x_0)) = f_*(x\circ q) = f\circ x\circ q\]
   \[(\psi_{EY}\circ f_*)(x)(x_0) = \psi_{EX}(f\circ x)(x_0) = f\circ x\circ q\]
 \end{proof}
