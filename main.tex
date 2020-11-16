@@ -127,7 +127,7 @@
   \label{def:quotient}
   If \(H\) acts on \(A\) as defined in \ref{def:action} we define the quotient of \(A\) by \(H\) in \(\cat{C}\) to be an element \(A/H\) of \(\cat{C}\) equipped with an arrow \(\fun{q}{A}{A/H}\) such that:
   \begin{enumerate}
-  \item for all \(h\in H\) \(q\circ h = q\) holds,
+  \item for all \(h\in H\) we have \(q\circ h = q\),
   \item for any \(\fun{x}{A}{X}\) such that \(x\circ h = x\) for all \(h\in H\) there exists a unique arrow \(\fun{\varphi}{A/H}{X}\) such that \(x = \varphi\circ q\).
   \end{enumerate}
   See also Figure \ref{diagram:quotient}.
@@ -159,12 +159,6 @@
   Consider a quotient \(\fun{q}{A}{A/H}\); by condition (1) above \(q\circ h = q = q\circ 1_A\) so \(q\) coequalizes all the pairs \((h, 1_A)\), for \(h\in H\).
   If another arrow \(\fun{x}{A}{X}\) coequalizes all the pairs that \(q\) does then this arrow is such that \(x\circ h = x\circ 1_A = x\) for all \(h\in H\) and thus, by condition (2), we have a unique factorization \(x = \varphi\circ q\).
   This proves that all quotients are strict epimorphisms.
-\end{remark}
-
-\begin{remark}
-  \label{rem:orbits}
-  Let \(G\) be a group, \(\gset\) the category of \(G\)-sets and \(G\)-invariant maps and \(A\) an object of \(\gset\).
-  In this category Definition \ref{def:quotient} yelds the familiar notion of the set of all orbits of an action: \(A/G\) is the set of orbits of \(A\).
 \end{remark}
 
 \begin{remark}
