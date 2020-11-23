@@ -87,8 +87,8 @@
 
 \begin{definition}
   \label{def:strit_epi}
-  In a category \(\cat{C}\) an arrow \(\fun{f}{X}{Y}\) is a \textbf{strict epimorphism} if it is the joint coequalizer of all the arrows it coequalizes.
-  This means that any arrow \(\fun{g}{X}{Z}\) such that \(g\circ x = g\circ y\) for any \(\fun{x,y}{C}{X}\) such that \(f\circ x = f\circ y\) there exists a unique arrow \(\fun{h}{Y}{Z}\) such that \(h\circ f = g\).
+  In a category \(\cat{C}\) an arrow \(\fun{f}{X}{Y}\) is a \textbf{strict epimorphism} if it is the joint coequalizer of all the pairs of arrows it coequalizes.
+  This means that any arrow \(\fun{g}{X}{Z}\) such that \(g\circ x = g\circ y\) for all \(\fun{x,y}{C}{X}\) such that \(f\circ x = f\circ y\) there exists a unique arrow \(\fun{h}{Y}{Z}\) such that \(h\circ f = g\).
   Refer to Figure \ref{diagram:strict_epi}.
 \end{definition}
 
@@ -105,7 +105,7 @@
 
 \begin{remark}
   \label{rem:strict_epi}
-  Strict epimorphisms are coequalizers, thus epimorphisms (as the name implies).
+  Strict epimorphisms are epimorphisms, as the name implies.
 \end{remark}
 
 \begin{remark}
