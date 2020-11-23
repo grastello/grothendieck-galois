@@ -174,9 +174,9 @@
 
   Let now \(E\) be a transitive G-set i.e. such that \(E/G = \{*\}\) in \(\set\)\footnote{This states that the set of orbits of \(E\) is a singleton that is of course the case if and only if \(E\) is transitive.}.
   Fix an \(x\in E\) and let \(\varphi\) be the G-invariant map defined by \(\varphi(e) = x\); we argue that \(\fun{\varphi}{G}{E}\) makes \(E\) into a quotient of \(G\) by the subgroup
-  \[H = \fix{x} = \{g\in G\colon gx = x\}.\]
+  \[H = \fix{x} = \{g\in G\colon g\cdot x = x\}.\]
   Indeed by using the definition of \(H\) and the fact that \(\varphi\) is G-invariant we have
-  \[(\varphi\circ h)(e) = \varphi(h(e)) = h(\varphi(e)) = h(x) = x.\]
+  \[(\varphi\circ h)(e) = \varphi(h\cdot e) = h\cdot\varphi(e) = h\cdot x = x.\]
   for all \(h\in H\).
   Moreover let \(\fun{g}{G}{F}\) satisfy (1) of Definition \ref{def:quotient}; as we discussed above \(g\) is entirely determined by the image of \(e\) so we obtain (2) defining an arrow \(\fun{f}{E}{F}\) by \(f(x) = g(e)\).
   The situation is depicted in Figure \ref{diagram:transitive_actions}.
@@ -218,9 +218,9 @@ For the rest of the section fix a category \(\cat{C}\), an object \(A\in\cat{C}\
   Moreover assume that \(\cat{C}\) has quotients of \(A\) by any subgroup of \(G\).
 
   By what we observed in Remark \ref{rem:transitive_actions} we have a bijection between elements of \(E\) and arrows of type \(G\to E\).
-  Consider then \(f\in\homs{A}{X}\) and its corresponding arrow \(\fun{\varphi}{G}{\homs{A}{X}_G}\); we claim that \(f\) factors through \(A/H\) if and only if \(\varphi\) factors through \(E \cong G/H\) (see Figure \ref{diagram:bijection}).
+  Consider then \(f\in\homs{A}{X}_G\) and its corresponding arrow \(\fun{\varphi}{G}{\homs{A}{X}_G}\); we claim that \(f\) factors through \(A/H\) if and only if \(\varphi\) factors through \(E \cong G/H\) (see Figure \ref{diagram:bijection}).
   Indeed \(f\) factors if and only if \(f\circ h = f\) for all \(h\in H\), by using the fact that \(\varphi\) is \(G\)-invariant we obtain
-  \[\varphi(h(e)) = h(\varphi(e)) = h(f) = f\circ h = f\]
+  \[\varphi(h\cdot e) = h\cdot\varphi(e) = h\cdot f = f\circ h = f\]
   and, since \(\varphi\) is uniquely determined by \(\varphi(e)\),  \(\varphi\circ h =\varphi\) for all \(h\in H\); this happens if and only if \(\varphi\) factors through \(E\cong G/H\).
 
   This gives us, for each \(X\in\cat{C}\) and \(E\in\tgset\), a bijection
