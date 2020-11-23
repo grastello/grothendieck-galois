@@ -224,9 +224,17 @@ For the rest of the section fix a category \(\cat{C}\), an object \(A\in\cat{C}\
   and, since \(\varphi\) is uniquely determined by \(\varphi(e)\),  \(\varphi\circ h =\varphi\) for all \(h\in H\); this happens if and only if \(\varphi\) factors through \(E\cong G/H\).
 
   This gives us, for each \(X\in\cat{C}\) and \(E\in\tgset\), a bijection
-  \[[A/H, X] \cong \tgset(E, [A, X]_G)\]
+  \[[A/H, X] \cong \tgset(E, [A, X]_G)\tag{\(*\)}\]
   natural in \(X\) in \(E\) (see Section \ref{sec:appendixes}).
-  Thus, if \(\cat{C}\) has quotients of \(A\) by subgroups of \(G\) we have an adjunction \(A\times_G - \dashv \homs{A}{-}_G\) where \(A\times_GE = A/H\) for \(H = \fix{x_0}\) and \(x_0\in E\) as above\footnote{We use the notation \(A\times_G-\) for the left adjoint in ``honor'' of the tensor-hom adjunction.}.
+
+	Provided that \(\cat{C}\) has quotients of \(A\) by subgroups of \(G\) we can define a functor \(A\times_G -\) from \(\tgset\) to \(\cat{C}\) by setting \(A\times_G E = A/H\) for \(H=\text{Fix}(x_0)\) and \(x_0\in E\) as above.
+	The behaviour of \(A\times_G-\) on arrows is defined as follows.
+	Let \(\fun{f}{E\cong G/H}{F\cong G/H'}\) be an arrow in \(\tgset\) with \(H=\text{Fix}(x_0), H'=\text{Fix}(f(x_0))\) and \(x_0\in E\).
+	Notice that for all \(h\in H\) we have \(f(h\cdot x_0) = f(x_0)\) by definition of \(H\) and \(f(h\cdot x_0) = h\cdot f(x_0)\) by \(G\)-invariance of \(f\); thus \(H\leq H'\).
+	This means that if \(\fun{q}{A}{A/H}\) and \(\fun{q'}{A}{A/H'}\) are the quotients in \(\cat{C}\) there is a unique arrow \(\fun{\tilde{f}}{A/H}{A/H'}\) such that \(q' = \tilde{f}\circ q\); we set \(A\times_G f = \tilde{f}\).
+	
+	Finally the naturality of the bijection \((*)\) now indicates that we have an adjunction
+  \[A\times_G - \dashv \homs{A}{-}_G.\] 
 \end{remark}
 
 \begin{figure}[h]
@@ -244,7 +252,7 @@ For the rest of the section fix a category \(\cat{C}\), an object \(A\in\cat{C}\
   \label{diagram:bijection}
 \end{figure}
 
-Our main problem will be that of finding conditions on \(\cat{C}\) that make this adjunction ineto an equivalence of categories.
+Our main problem will be that of finding conditions on \(\cat{C}\) that make this adjunction into an equivalence of categories.
 
 \section{Categorial axiomatization of Galois Theory}
 \label{sec:axioms}
@@ -418,13 +426,8 @@ Let's indicate with \(\psi_{EX}\) the bijection between \(\homs{A/H}{X}\) and \(
 
 \begin{proof}[Naturality in \(E\)]
   \label{proof:naturality_in_E}
-  We want to prove that the \(\psi_{EX}\) are the components of a natural transformation \(\homs{A/-}{X}\Rightarrow\tgset(-, \homs{A}{X}_G)\), but before drawing the naturality square as above we shall note that this case is slightly complicated by the fact that it is not immediately clear how the functor \(\homs{A/-}{X}\) acts on arrows.
-  Indeed let \(\fun{f}{E\cong G/H}{F\cong G/H'}\) be an arrow of \(\tgset\) with \(H = \fix{x_0}, H' = \fix{f(x_0)}\) and \(x_0\in E\); these choices are justified by the fact that both \(E\) and \(F\) are transitive \(G\)-sets.
-  Now notice that, for \(h\in H\), \(f(h\cdot x_0) = f(x_0)\) by definition of \(H\) and \(f(h\cdot x_0) = h\cdot f(x_0)\) by \(G\)-invariance of \(f\); thus \(h\in H'\) and \(H\subseteq H'\).
-  This means that if we let \(\fun{q}{A}{A/H}, \fun{q'}{A}{A/H'}\) be the quotients in \(\cat{C}\) then there is a unique arrow \(\fun{\widetilde{f}}{A/H}{A/H'}\) such that \(\widetilde{f}\circ q = q'\).
-  The functor \(\homs{A/-}{X}\) then sends the arrow \(\fun{f}{E}{F}\) to \(\fun{\widetilde{f}^*}{\homs{A/H'}{X}}{\homs{A/H}{X}}\).
-
-  Now we want to prove the naturality of the following square.
+  We want to prove that the \(\psi_{EX}\) are the components of a natural transformation \(\homs{A/-}{X}\Rightarrow\tgset(-, \homs{A}{X}_G)\).
+	Given \(\fun{f}{E\cong G/H}{F\cong G/H'}\) with \(H=\text{Fix}(x_0), H'=\text{Fix}(f(x_0)), x_0\in E\), using the notation \(\tilde{f} = A\times_G f\) (see Remark \ref{rem:adjoints}), we show the naturality of the following square.
   \begin{center}
     \begin{tikzcd}[sep=huge]
       \homs{A/H}{X} \ar[r, "\psi_{EX}"] & \tgset(E, \homs{A}{X}_G) \\
