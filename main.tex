@@ -336,13 +336,11 @@ Through this section fix a category \(\cat{C}\) and an object \(A\in\cat{C}\).
 
 \begin{proposition}
   \label{prop:epsilon_iso}
-  Any arrow \(\fun{x}{A}{X}\) of \(\cat{C}\) is a quotient of \(A\) by \(H = \fix{x}\leq G\) (with respect to the action on \(\homs{A}{X}\) described in Proposition \ref{prop:action_hom_set}) i.e. \(X = A/H\).
+  Any arrow \(\fun{x}{A}{X}\) of \(\cat{C}\) is a quotient of \(A\) by \(H = \fix{x}\leq G\) (with respect to the action on \(\homs{A}{X}\) described in Remark \ref{prop:action_hom_set}) i.e. \(X = A/H\).
 \end{proposition}
 
 \begin{proof}
-  By choosing \(H = \fix{x}\) we get \(x\circ h = x\) for all \(h\in H\) and thus there is a unique arrow \(\fun{\varepsilon}{A/H}{X}\) of \(\cat{C}\) such that \(x = \varepsilon\circ q\), where \(\fun{q}{A}{A/H}\) is the quotient of \(A\) by \(H\).
-  Graphically:
-
+	By choosing \(H = \fix{x}\) we get \(x\circ h = x\) for all \(h\in H\) and thus there is a unique arrow \(\fun{\varepsilon}{A/H}{X}\) of \(\cat{C}\) such that \(x = \varepsilon\circ q\), where \(\fun{q}{A}{A/H}\) is the quotient of \(A\) by \(H\) (see Figure \ref{diagram:varepsilon}).
   \begin{figure}
     \begin{center}
       \begin{tikzcd}[sep=huge]
@@ -352,10 +350,7 @@ Through this section fix a category \(\cat{C}\) and an object \(A\in\cat{C}\).
     \caption{}
     \label{diagram:varepsilon}
   \end{figure}
-
-  Now by applying \(\homs{A}{-}\) to the diagram above we obtain
-
-  \begin{figure}
+	\begin{figure}
     \begin{center}
       \begin{tikzcd}[sep=huge]
         \homs{A}{A} \ar[rr, bend left, "x_*"] \ar[r, "q_*"] \ar[dr, bend right, "\rho"] & \homs{A}{A/H} \ar[r, "\varepsilon_*"] & \homs{A}{X}\\
@@ -365,8 +360,9 @@ Through this section fix a category \(\cat{C}\) and an object \(A\in\cat{C}\).
     \caption{}
     \label{diagram:big_diagram}
   \end{figure}
-  where \(\rho, \psi\) and \(\eta\) are as discussed before.
-  We now have
+
+	By applying \(\homs{A}{-}\) we obtain Figure \ref{diagram:big_diagram} where \(\rho, \psi\) and \(\eta\) are as discussed before.
+  We have
   \[\varepsilon_*\circ \eta\circ\rho = \varepsilon_*\circ q_* = x_* = \psi\circ \rho\]
   that by epicness of \(\rho\) implies \(\varepsilon_*\circ \eta = \psi\).
   Now \(\varepsilon_*\) must be monic since \(\psi\) and \(\eta\) are; but this, by Proposition \ref{prop:hom_is_faithful}, implies that \(\varepsilon\in\cat{C}\) is monic too.
