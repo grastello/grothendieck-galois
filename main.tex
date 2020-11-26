@@ -319,7 +319,7 @@ Through this section fix a category \(\cat{C}\) and an object \(A\in\cat{C}\).
 \begin{remark}
   \label{rem:axiom2}
   Consider an arrow \(\fun{x}{A}{X}\) and the epi-mono factorization \(x_* = \psi\circ \rho\)\footnote{We recall that \(\gset\) is a topos and, as such, has epi-mono factorization.}.
-  With reference to the diagram below Axiom (iii) implies that \(I = \homs{A}{A}/H\) with \(H = \fix{x}\leq G\).
+  With reference to the diagram below Axiom (3) implies that \(I = \homs{A}{A}/H\) with \(H = \fix{x}\leq G\).
 
   \begin{center}
     \begin{tikzcd}[sep=huge]
@@ -327,11 +327,11 @@ Through this section fix a category \(\cat{C}\) and an object \(A\in\cat{C}\).
     \end{tikzcd}
   \end{center}
 
-  Indeed by Axiom (iii) \(\homs{A}{A} = \aut(A) = G\) so an \(h\in H\) acts on \(\homs{A}{A}\) by left multiplication.
-  Given \(f\in\homs{A}{A}\) we have
-  \[(\psi\circ \rho\circ h)(f) = x_*(h\circ f) = x\circ h\circ f = x\circ f = x_*(f) = (\psi\circ \rho)(f)\]
+	Indeed by Axiom (3) \(\homs{A}{A} = G\) so an arrow from \(\homs{A}{A}\) is determined by its behaviour on \(1_A\).
+	Now
+	\[(\psi\circ\rho\circ h)(1_A) = x_*(1_A\circ h) = x\circ h = x = x_*(1_A) = (\psi\circ\rho)(1_A)\]
   that is \(\psi\circ\rho\circ h = \psi\circ\rho\) which, by monicness of \(\psi\), implies \(\rho\circ h = \rho\).
-  Moreover as \(I\) is the image of \(x_*\) it is unique up to isomorphism and thus \(\rho\) is really a quotient arrow; \(I = \homs{A}{A}/H\).
+	This makes \(\rho\) into a quotient.
 \end{remark}
 
 \begin{proposition}
