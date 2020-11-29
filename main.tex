@@ -82,6 +82,23 @@
 \author{Gabriele Rastello}
 \maketitle
 
+\tableofcontents
+
+\section{Introduction}
+\label{sec:introduction}
+The Fundamental Theorem of Galois Theory is an old and profound (more than Eva, less than the Fundamental Theorem of Calculus) result of field theory.
+In modern terms it establishes a one-to-one correspondence between the subextensions of a finite Galois extension of a field and the subgroups of the Galois group of that extension.
+A statement and a "classical" proof of this theorem can be found in \cite{lang}.
+
+Another similar result, this time in algebraic topology, is the Fundamental Theorem of Covering Theory.
+This theorems states the existence of a one-to-one correspondence between subgroups of the fundamental group and path-connected covering spaces of a path-connected topological space.
+
+The two statements, at least on an intuitive level, have something in common.
+Intrigued by this curious fact and moved by a belief that this is no coincidence Grothen\-dieck was able to prove a theorem (here Theorem \ref{theo:galois}) that has both of them as consequences; thus unifying the matter\footnote{It is noteworthy to say that Grothendieck went even further than that and was able to prove an even more general theorem that, even for the classical case of fields, yields results that weren't previously known. However, we will stick to the base case here; the interested reader can check \cite{edo} section IV and V.}.
+In this pages we will explore Grothendieck's approach following closely \cite{edo}, but with some added details (mostly confined in the appendix).
+
+The reader is assumed to have a basic knowledge of category theory (categories, functors, natural transformations, adjoint functors, some (co)limits) and of group actions (mostly about transitive actions).
+
 \section{Group actions and adjoints}
 \label{sec:1}
 
@@ -318,7 +335,7 @@ Through this section fix a category \(\cat{C}\) and an object \(A\in\cat{C}\).
 
 \begin{remark}
   \label{rem:axiom2}
-  Consider an arrow \(\fun{x}{A}{X}\) and the epi-mono factorization \(x_* = \psi\circ \rho\)\footnote{We recall that \(\gset\) is a topos and, as such, has epi-mono factorization.}.
+	Consider an arrow \(\fun{x}{A}{X}\) and the epi-mono factorization \(x_* = \psi\circ \rho\)\footnote{We recall that \(\gset\) is a topos and, as such, has epi-mono factorization. The interested reader can find evidence of both facts in \cite{topi}.}.
   With reference to the diagram below Axiom (3) implies that \(I = \homs{A}{A}/H\) with \(H = \fix{x}\leq G\).
 
   \begin{center}
@@ -397,7 +414,25 @@ Through this section fix a category \(\cat{C}\) and an object \(A\in\cat{C}\).
   The existence of the adjunction follows from the discussion in Section \ref{sec:1}, the fact that \(\eta\) and \(\varepsilon\) are (the components of) the unit and counit of the andjunction is a calculation that has been moved to the appendix and the fact that they are isomorphisms follows respectively from Remark \ref{rem:axiom1} and Proposition \ref{prop:epsilon_iso}.
 \end{proof}
 
-\section{Appendixes}
+\section{Conclusion}
+\label{sec:conclusion}
+Let \(k\) be a field and \(E\) a finite Galois extension of \(k\).
+Let \(\cat{C}\) be the opposite category of the category of subextensions of \(E\) (with arrows restricted to the field homomorphisms that fix the base field \(k\)) then it is possible to prove that \(\cat{C}\) satisfies Axioms (1), (2) and (3) with \(A=E\).
+Indeed:
+\begin{itemize}
+	\item Axiom (3) is trivially satisfied and \(G = \text{Aut}(A, A)\) is the Galois group of \(E\),
+	\item Axiom (2) is satisfied as one can check that, for each \(H\leq G\) the fixed field
+		\[E^H = \{x\in E\colon \forall h\in H\ h(x) = x\}\]
+		is the quotient of \(E\) by \(H\) in \(\cat{C}\)\footnote{If we prefer to work in the original category of subextensions (not in the dual) this means that \(E^H\) is the coquotient of \(E\) by \(H\).},
+	\item Axiom (1) is satisfied because in the category of subextensions of \(E\) every object has an arrow to \(E\) and every such arrow is a strict monomorphism.
+\end{itemize}
+We can then apply Theorem \ref{theo:galois} to obtain that \(\cat{C}\) and \(\tgset\) are equivalent.
+The correspondance of Galois can then be retrieved by associating to each \(F\in\cat{C}\) the subgroup \(H\leq G\) such that the transitive \(G\)-set \(G/H\) is precisely the \(G\)-set associated to \(F\) by the equivalence above.
+
+Theorem \ref{theo:galois} can also be used to give alternative proofs of other well-known results (such as the corespondence between subgroups of the fundamental group and path-connected covering spaces of a path-connected topological space) that intuitively share some similarities with the case of Galois Theory.
+Indeed the most beautiful part about this theorem is that, through its very abstract nature, is able to clearly identify, capture and unify these "intuitive similarities" that different pieces of mathematics posses\footnote{Arguably this is the goal of category theory as a whole, making this particular theorem into a quintessential example.}.
+
+\section{Appendix}
 \label{sec:appendixes}
 
 \subsection{Naturality of \(\homs{A/H}{X} \cong \tgset(E, \homs{A}{X}_G)\)}
@@ -461,4 +496,29 @@ Let's indicate with \(\psi_{EX}\) the bijection between \(\homs{A/H}{X}\) and \(
   Now we have that \(\psi^{-1}(1_{\homs{A}{X}})\) is the arrow \(A/H\to X\) of \(\cat{C}\) that factorizes \(x\) i.e. \(\psi^{-1}(1_{\homs{A}{X}}) = \varepsilon\) as in Figure \ref{diagram:varepsilon}.
 \end{proof}
 
+\begin{thebibliography}{1}
+\bibitem{edo}
+	E.J. Dubuc, C. Sanchez de la Vega,
+  \textit{On the Galois Theory of Grothendieck},
+  \href{https://arxiv.org/abs/math/0009145}{arXiv:math/0009145},
+  2007.
+\bibitem{catwork}
+  Saunders Mac Lane,
+  \textit{Categories for the Working Mathematician},
+  Springer,
+  second edition,
+  1997.
+\bibitem{lang}
+  Serge Lang,
+  \textit{Algebra},
+  Springer - Graduate Texts in Mathematics,
+  revised third edition,
+  2005.
+\bibitem{topi}
+  Robert Goldblatt,
+  \textit{Topoi - the categorical analysis of logic},
+  Dover,
+  revised edition,
+  2006.
+\end{thebibliography}
 \end{document}
