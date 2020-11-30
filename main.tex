@@ -95,11 +95,12 @@ This theorems states the existence of a one-to-one correspondence between subgro
 
 The two statements, at least on an intuitive level, have something in common.
 Intrigued by this curious fact and moved by a belief that this is no coincidence Grothen\-dieck was able to prove a theorem (here Theorem \ref{theo:galois}) that has both of them as consequences; thus unifying the matter\footnote{It is noteworthy to say that Grothendieck went even further than that and was able to prove an even more general theorem that, even for the classical case of fields, yields results that weren't previously known. However, we will stick to the base case here; the interested reader can check \cite{edo} section IV and V.}.
-In this pages we will explore Grothendieck's approach following closely \cite{edo}, but with some added details (mostly confined in the appendix).
+In this pages we will explore Grothendieck's approach following closely section III of \cite{edo}, but with some added details (mostly confined in the appendix).
 
 The reader is assumed to have a basic knowledge of category theory (categories, functors, natural transformations, adjoint functors, some (co)limits) and of group actions (mostly about transitive actions).
+We use the notation \(H\leq G\) to indicate that \(H\) is a subgroup of \(G\) and \([-,-]\) for the hom-set \(\cat{C}(-, -)\).
 
-\section{Group actions and adjoints}
+\section{Group actions and adjunctions}
 \label{sec:1}
 
 \begin{definition}
@@ -127,7 +128,7 @@ The reader is assumed to have a basic knowledge of category theory (categories, 
 
 \begin{remark}
   \label{rem:strict_epi_plus_mono}
-  If an arrow is both a stric epimorphism and a monomorphism then it is an isomorphism.
+  If an arrow is both a strict epimorphism and a monomorphism then it is an isomorphism.
 \end{remark}
 
 \begin{definition}
@@ -138,7 +139,7 @@ The reader is assumed to have a basic knowledge of category theory (categories, 
 
 \begin{notation}
   \label{not:action}
-  Given an action of a group \(H\) on an object \(A\) of \(\cat{C}\) we denote, with a slight abuse of notation, the automorphism of \(A\) associated to \(h\in H\) by the same symbol \(h\).
+	Given an action of a group \(H\) on an object \(A\) of \(\cat{C}\) we denote, with a slight abuse of notation, the automorphism of \(A\) associated to \(h\in H\) with \(h\) as well.
 \end{notation}
 
 \begin{definition}
@@ -407,11 +408,11 @@ Through this section fix a category \(\cat{C}\) and an object \(A\in\cat{C}\).
   \[\fun{\eta}{E\cong \homs{A}{A}/H}{\homs{A}{A/H}}\]
   \[\fun{\varepsilon}{A/H}{X}\]
   are isomorphisms.
-  This enstablishes an equivalence of categories between \(\cat{C}\) and \(\tgset\).
+  This establishes an equivalence of categories between \(\cat{C}\) and \(\tgset\).
 \end{theorem}
 
 \begin{proof}
-  The existence of the adjunction follows from the discussion in Section \ref{sec:1}, the fact that \(\eta\) and \(\varepsilon\) are (the components of) the unit and counit of the andjunction is a calculation that has been moved to the appendix and the fact that they are isomorphisms follows respectively from Remark \ref{rem:axiom1} and Proposition \ref{prop:epsilon_iso}.
+  The existence of the adjunction follows from the discussion in Section \ref{sec:1}, the fact that \(\eta\) and \(\varepsilon\) are (the components of) the unit and counit of the adjunction is a calculation that has been moved to the appendix and the fact that they are isomorphisms follows respectively from Remark \ref{rem:axiom1} and Proposition \ref{prop:epsilon_iso}.
 \end{proof}
 
 \section{Conclusion}
@@ -427,9 +428,9 @@ Indeed:
 	\item Axiom (1) is satisfied because in the category of subextensions of \(E\) every object has an arrow to \(E\) and every such arrow is a strict monomorphism.
 \end{itemize}
 We can then apply Theorem \ref{theo:galois} to obtain that \(\cat{C}\) and \(\tgset\) are equivalent.
-The correspondance of Galois can then be retrieved by associating to each \(F\in\cat{C}\) the subgroup \(H\leq G\) such that the transitive \(G\)-set \(G/H\) is precisely the \(G\)-set associated to \(F\) by the equivalence above.
+The correspondence of Galois can then be retrieved by associating to each \(F\in\cat{C}\) the subgroup \(H\leq G\) such that the transitive \(G\)-set \(G/H\) is precisely the \(G\)-set associated to \(F\) by the equivalence above.
 
-Theorem \ref{theo:galois} can also be used to give alternative proofs of other well-known results (such as the corespondence between subgroups of the fundamental group and path-connected covering spaces of a path-connected topological space) that intuitively share some similarities with the case of Galois Theory.
+Theorem \ref{theo:galois} can also be used to give alternative proofs of other well-known results (such as the correspondence between subgroups of the fundamental group and path-connected covering spaces of a path-connected topological space) that intuitively share some similarities with the case of Galois Theory.
 Indeed the most beautiful part about this theorem is that, through its very abstract nature, is able to clearly identify, capture and unify these "intuitive similarities" that different pieces of mathematics posses\footnote{Arguably this is the goal of category theory as a whole, making this particular theorem into a quintessential example.}.
 
 \section{Appendix}
