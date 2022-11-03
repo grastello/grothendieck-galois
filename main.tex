@@ -196,7 +196,7 @@ We use the notation \(H\leq G\) to indicate that \(H\) is a subgroup of \(G\) an
   Indeed by using the definition of \(H\) and the fact that \(\varphi\) is G-invariant we have
   \[(\varphi\circ h)(e) = \varphi(h\cdot e) = h\cdot\varphi(e) = h\cdot x = x.\]
   for all \(h\in H\).
-  Moreover let \(\fun{g}{G}{F}\) satisfy (1) of Definition \ref{def:quotient}; as we discussed above \(g\) is entirely determined by the image of \(e\) so we obtain (2) defining an arrow \(\fun{f}{E}{F}\) by \(f(x) = g(e)\).
+  Moreover let \(\fun{g}{G}{F}\) satisfy (1) of Definition \ref{def:quotient}; as we discussed above \(g\) is entirely determined by the image of \(e\) so we obtain (2) defining an arrow \(\fun{f}{E}{F}\) by \(f(x) = g(e)\); this \(f\) is unique as arrows out of a transitive \(G\)-set are defined by their value on a single element of \(E\).
   The situation is depicted in Figure \ref{diagram:transitive_actions}.
 
   Finally: \(G\) is a transitive G-set and so is every \(G/H\) with \(H\leq G\) and the action defined again by left multiplication (on cosets) so an object \(E\in\gset\) is transitive if and only if it is isomorphic to some \(G/H\).
@@ -217,16 +217,16 @@ For the rest of the section fix a category \(\cat{C}\), an object \(A\in\cat{C}\
 
 \begin{remark}
   \label{prop:action_hom_set}
-  Consider a subgroup \(H\leq G\) and an object \(X\in\cat{C}\). \(H\) acts on the hom-set \([A, X]\) as follows\footnote{Since an action as of Definition \ref{def:action} is a map that sends elements of a group to arrows it is, in this case, equivalent to give the definition of an action by uncurrying.}:
+  Consider a subgroup \(H\leq G\) and an object \(X\in\cat{C}\). \(H\) acts on the hom-set \([A, X]\) as follows:
   \nonamefundef{H\times [A, X]}{[A, X]}{(h, x)}{h\cdot x = x \circ h.}
 \end{remark}
 
 \begin{remark}
   \label{rem:hom_functor}
-  Assume that the action \(G\times [A, X] \to [A, X]\) is transitive and let \(\tgset\) be the category of transitive \(G\)-sets (a subcategory of \(Gset\)).
+  Assume that the action \(G\times [A, X] \to [A, X]\) is transitive and let \(\tgset\) be the category of transitive \(G\)-sets (a subcategory of \(\gset\)).
   Then we have a functor
   \fundef{[A, -]_G}{\cat{C}}{\tgset}{X \ar[d, "f"] \\ Y}{\homs{A}{X}_G \ar[d, "f_*"] \\ \homs{A}{Y}_G}
-  where we indicate with \(\homs{A}{X}_G\) the hom-set \([A, X]\) upon which \(G\) acts as described in Proposition \ref{prop:action_hom_set} and \(f_*\) is post-composition with \(f\).
+  where we indicate with \(\homs{A}{X}_G\) the hom-set \([A, X]\) upon which \(G\) acts as described in Remark \ref{prop:action_hom_set} and \(f_*\) is post-composition with \(f\).
   It is easy to check that \(f_*\) is indeed \(G\)-invariant.
 \end{remark}
 
