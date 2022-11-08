@@ -139,12 +139,12 @@ We use the notation \(H\leq G\) to indicate that \(H\) is a subgroup of \(G\) an
 
 \begin{notation}
   \label{not:action}
-	Given an action of a group \(H\) on an object \(A\) of \(\cat{C}\) we denote, with a slight abuse of notation, the automorphism of \(A\) associated to \(h\in H\) with \(h\) as well.
+	Given an action of a group \(H\) on an object \(A\) of \(\cat{C}\) we denote, with a slight abuse of notation, the automorphism of \(A\) associated to \(h\in H\) with the same letter \(h\).
 \end{notation}
 
 \begin{definition}
   \label{def:quotient}
-  If \(H\) acts on \(A\) as defined in \ref{def:action} we define the quotient of \(A\) by \(H\) in \(\cat{C}\) to be an element \(A/H\) of \(\cat{C}\) equipped with an arrow \(\fun{q}{A}{A/H}\) such that:
+  If \(H\) acts on \(A\) as in Definition \ref{def:action} we define the \textbf{quotient} of \(A\) by \(H\) in \(\cat{C}\) to be an element \(A/H\) of \(\cat{C}\) equipped with an arrow \(\fun{q}{A}{A/H}\) such that:
   \begin{enumerate}
   \item for all \(h\in H\) we have \(q\circ h = q\),
   \item for any \(\fun{x}{A}{X}\) such that \(x\circ h = x\) for all \(h\in H\) there exists a unique arrow \(\fun{\varphi}{A/H}{X}\) such that \(x = \varphi\circ q\).
@@ -165,7 +165,7 @@ We use the notation \(H\leq G\) to indicate that \(H\) is a subgroup of \(G\) an
 \begin{figure}[h]
   \begin{center}
     \begin{tikzcd}[sep=huge]
-      A \ar[loop left, "h"] \ar[r, "q"] \ar[rd, "x"] & A/H \ar[d, "\varphi"]\\
+      A \ar[loop left, "h"] \ar[r, "q"] \ar[rd, "x"] & A/H \ar[d, dashed, "\varphi"]\\
       & X
     \end{tikzcd}
   \end{center}
@@ -173,9 +173,14 @@ We use the notation \(H\leq G\) to indicate that \(H\) is a subgroup of \(G\) an
   \label{diagram:quotient}
 \end{figure}
 
+\begin{example}
+  \label{ex:orbits}
+  In the case of the category \(\set\) of sets and functions if a group \(H\) acts on a set \(A\) the quotient \(A/H\) is the set of orbits of \(A\) under the action and the arrow \(q: A \to A/H\) is the function that sends each element of \(A\) to its orbit.
+\end{example}
+
 \begin{remark}
   \label{rem:quotient_are_strict_epi}
-  Consider a quotient \(\fun{q}{A}{A/H}\); by condition (1) above \(q\circ h = q = q\circ 1_A\) so \(q\) coequalizes all the pairs \((h, 1_A)\), for \(h\in H\).
+  Consider a quotient \(\fun{q}{A}{A/H}\); by condition (1) above \(q\circ h = q = q\circ 1_A\) so \(q\) coequalizes all the pairs \((h, 1_A)\), for every \(h\in H\).
   If another arrow \(\fun{x}{A}{X}\) coequalizes all the pairs that \(q\) does then this arrow is such that \(x\circ h = x\circ 1_A = x\) for all \(h\in H\) and thus, by condition (2), we have a unique factorization \(x = \varphi\circ q\).
   This proves that all quotients are strict epimorphisms.
 \end{remark}
@@ -185,21 +190,58 @@ We use the notation \(H\leq G\) to indicate that \(H\) is a subgroup of \(G\) an
 \end{notation}
 
 \begin{remark}
-  \label{rem:transitive_actions}
-  Consider \(\gset\).
-  The underlying set of \(G\) (that we also denote with \(G\)) is a G-set with the action given by left multiplication; we call this the \textbf{canonical action} of \(G\) on itself.
-  Let \(\fun{\varphi}{G}{E}\) be a G-invariant map; it is easy to see that such a \(\varphi\), by virtue of being G-invariant, is determined uniquely by the value \(\varphi(e)\), where \(e\) is the neutral element of \(G\).
+  \label{rem:gset_epi}
+  In \(\gset\) an arrow \(f\) is an epimorphisms if and only if it is surjective.
+\end{remark}
 
-  Let now \(E\) be a transitive G-set i.e. such that \(E/G = \{*\}\) in \(\set\)\footnote{This states that the set of orbits of \(E\) is a singleton that is of course the case if and only if \(E\) is transitive.}.
-  Fix an \(x\in E\) and let \(\varphi\) be the G-invariant map defined by \(\varphi(e) = x\); we argue that \(\fun{\varphi}{G}{E}\) makes \(E\) into a quotient of \(G\) by the subgroup
+\begin{definition}
+  \label{def:transitive_action}
+  A \(G\)-set \(E\) is said to be \textbf{transitive} if for any pair \(x, y \in E\) there is a \(g \in G\) such that \(g \cdot x = y\).
+  Equivalently a \(G\)-set is transitive if it has a single orbit i.e. the quotient \(E/G\) is a singleton.
+\end{definition}
+
+\begin{remark}
+  \label{rem:maps_out_of_transitive_sets}
+  If \(E\) is a transitive \(G\)-set and \(\varphi: E \to F\) a \(G\)-invariant map then it is determined uniquely by its value of any \(x \in E\) as for any \(y \in E\) we have \(y = g \cdot x\) for some \(g \in G\) and thus
+  \begin{equation*}
+    \varphi(y) = \varphi(g \cdot x) = g \cdot \varphi(x).
+  \end{equation*}
+\end{remark}
+
+\begin{example}
+  \label{ex:canonical_action}
+  The underlying set of \(G\) (that we also denote with \(G\)) is a G-set with the action given by left multiplication; we call this the \textbf{canonical action} of \(G\) on itself.
+  This is trivially a transitive action and so Remark \ref{rem:maps_out_of_transitive_sets} applies: to give a \(G\)-invariant map \(\varphi: G \to E\) is to give its value on a single element of \(G\); it is customary to give \(\varphi(e)\) where \(e\) is the neutral element of the group.
+\end{example}
+
+\begin{remark}
+  \label{rem:transitive_actions}
+  Let \(E\) be a transitive G-set.
+  Fix an \(x\in E\) and let \(\varphi\) be the G-invariant map defined by \(\varphi(e) = x\).
+  We argue that \(\fun{\varphi}{G}{E}\) makes \(E\) into a quotient of \(G\) by the subgroup
   \[H = \fix{x} = \{g\in G\colon g\cdot x = x\}.\]
-  Indeed by using the definition of \(H\) and the fact that \(\varphi\) is G-invariant we have
-  \[(\varphi\circ h)(e) = \varphi(h\cdot e) = h\cdot\varphi(e) = h\cdot x = x.\]
+  Indeed by the definition of \(H\) and the fact that \(\varphi\) is G-invariant we have
+  \[(\varphi\circ h)(e) = \varphi(h\cdot e) = h\cdot\varphi(e) = h\cdot x = x = \varphi(e)\]
   for all \(h\in H\).
   Moreover let \(\fun{g}{G}{F}\) satisfy (1) of Definition \ref{def:quotient}; as we discussed above \(g\) is entirely determined by the image of \(e\) so we obtain (2) defining an arrow \(\fun{f}{E}{F}\) by \(f(x) = g(e)\); this \(f\) is unique as arrows out of a transitive \(G\)-set are defined by their value on a single element of \(E\).
   The situation is depicted in Figure \ref{diagram:transitive_actions}.
 
-  Finally: \(G\) is a transitive G-set and so is every \(G/H\) with \(H\leq G\) and the action defined again by left multiplication (on cosets) so an object \(E\in\gset\) is transitive if and only if it is isomorphic to some \(G/H\).
+  We conclude that every transitive \(G\)-set is of the form \(G/H\) for some \(H \leq G\).
+  
+
+%  Finally: \(G\) is a transitive G-set and so is every \(G/H\) with \(H\leq G\) and the action defined again by left multiplication (on cosets) so an object \(E\in\gset\) is transitive if and only if it is isomorphic to some \(G/H\).
+\end{remark}
+
+\begin{remark}
+  \label{rem:quotients_are_transitive}
+  Let \(H \leq G\) be such that the quotient \(q: G \to G/H\) exists in \(\gset\); then \(G/H\) is a transitive \(G\)-set.
+  Indeed we know from Remark \ref{rem:quotient_are_strict_epi} that \(q\) is an epimorphism and thus, from Remark \ref{rem:gset_epi}, a surjection.
+  If \(x, y \in G/H\) then there are \(x', y' \in G\) such that \(x = q(x'), y = q(y')\) and, since \(G\) is transitive, there is some \(g \in G\) such that \(g \cdot x' = y'\).
+  Now using that \(q\) is \(G\)-invariant we obtain
+  \begin{equation*}
+    g \cdot x = g \cdot q(x') = q(g \cdot x') = q(y') = y
+  \end{equation*}
+  and so \(G/H\) is transitive.
 \end{remark}
 
 \begin{figure}
@@ -235,24 +277,27 @@ For the rest of the section fix a category \(\cat{C}\), an object \(A\in\cat{C}\
   Consider an object \(E\in\tgset\), pick an element \(x_0\in E\) and let \(H = \fix{x_0}\leq G\) (the choice of \(x_0\) is irrelevant as \(E\) is transitive).
   Moreover assume that \(\cat{C}\) has quotients of \(A\) by any subgroup of \(G\).
 
-  By what we observed in Remark \ref{rem:transitive_actions} we have a bijection between elements of \(E\) and arrows of type \(G\to E\).
+  By what we observed in Remark \ref{rem:maps_out_of_transitive_sets} we have a bijection between elements of \(E\) and arrows of type \(G\to E\).
   Consider then \(f\in\homs{A}{X}_G\) and its corresponding arrow \(\fun{\varphi}{G}{\homs{A}{X}_G}\); we claim that \(f\) factors through \(A/H\) if and only if \(\varphi\) factors through \(E \cong G/H\) (see Figure \ref{diagram:bijection}).
-  Indeed \(f\) factors if and only if \(f\circ h = f\) for all \(h\in H\), by using the fact that \(\varphi\) is \(G\)-invariant we obtain
-  \[\varphi(h\cdot e) = h\cdot\varphi(e) = h\cdot f = f\circ h = f\]
-  and, since \(\varphi\) is uniquely determined by \(\varphi(e)\),  \(\varphi\circ h =\varphi\) for all \(h\in H\); this happens if and only if \(\varphi\) factors through \(E\cong G/H\).
-
+  Now \(f\) factors if and only if \(f\circ h = f\) for all \(h\in H\) and \(\varphi\) factors if and only if \(\varphi \circ h = \varphi\) for all \(h \in H\).
+  Moreover by using that \(\varphi\) is \(G\)-invariant we obtain the relation
+  \[(\varphi \circ h)(e)= \varphi(h \cdot e) = h\cdot\varphi(e) = h\cdot f = f\circ h\]
+  which, together with the fact that \(\varphi\) is determined by \(\varphi(e)\), makes the two factorization conditions equivalent.
+  
   This gives us, for each \(X\in\cat{C}\) and \(E\in\tgset\), a bijection
-  \[[A/H, X] \cong \tgset(E, [A, X]_G)\tag{\(*\)}\]
-  natural in \(X\) in \(E\) (see Section \ref{sec:appendixes}).
+  \[[A/H, X] \cong \tgset(E, [A, X]_G)\tag{\(*\)}.\]
 
-	Provided that \(\cat{C}\) has quotients of \(A\) by subgroups of \(G\) we can define a functor \(A\times_G -\) from \(\tgset\) to \(\cat{C}\) by setting \(A\times_G E = A/H\) for \(H=\text{Fix}(x_0)\) and \(x_0\in E\) as above.
-	The behaviour of \(A\times_G-\) on arrows is defined as follows.
-	Let \(\fun{f}{E\cong G/H}{F\cong G/H'}\) be an arrow in \(\tgset\) with \(H=\text{Fix}(x_0), H'=\text{Fix}(f(x_0))\) and \(x_0\in E\).
-	Notice that for all \(h\in H\) we have \(f(h\cdot x_0) = f(x_0)\) by definition of \(H\) and \(f(h\cdot x_0) = h\cdot f(x_0)\) by \(G\)-invariance of \(f\); thus \(H\leq H'\).
-	This means that if \(\fun{q}{A}{A/H}\) and \(\fun{q'}{A}{A/H'}\) are the quotients in \(\cat{C}\) there is a unique arrow \(\fun{\tilde{f}}{A/H}{A/H'}\) such that \(q' = \tilde{f}\circ q\); we set \(A\times_G f = \tilde{f}\).
-	
-	Finally the naturality of the bijection \((*)\) now indicates that we have an adjunction
-  \[A\times_G - \dashv \homs{A}{-}_G.\] 
+
+  Provided that \(\cat{C}\) has quotients of \(A\) by subgroups of \(G\) we can define a functor \(A\times_G -\) from \(\tgset\) to \(\cat{C}\) by setting \(A\times_G E = A/H\) for \(H=\text{Fix}(x_0)\) and \(x_0\in E\) as above.
+  The behaviour of \(A\times_G-\) on arrows is defined as follows.
+  Let \(\fun{f}{E\cong G/H}{F\cong G/H'}\) be an arrow in \(\tgset\) with \(H=\text{Fix}(x_0), H'=\text{Fix}(f(x_0))\) and \(x_0\in E\).
+  Notice that for all \(h\in H\) we have \(f(h\cdot x_0) = f(x_0)\) by definition of \(H\) and \(f(h\cdot x_0) = h\cdot f(x_0)\) by \(G\)-invariance of \(f\); thus \(H\leq H'\).
+  This means that if \(\fun{q}{A}{A/H}\) and \(\fun{q'}{A}{A/H'}\) are the quotients in \(\cat{C}\) there is a unique arrow \(\fun{\tilde{f}}{A/H}{A/H'}\) such that \(q' = \tilde{f}\circ q\); we set \(A\times_G f = \tilde{f}\).
+
+  Finally we can rewrite \((*)\) as
+  \[[A \times_G E, X] \cong \tgset(E, [A, X]_G)\]
+  and, by some routine calculations (see Section \ref{sec:appendixes} for details), wee have an adjunction
+  \[A\times_G - \dashv \homs{A}{-}_G.\]
 \end{remark}
 
 \begin{figure}[h]
@@ -275,14 +320,14 @@ Our main problem will be that of finding conditions on \(\cat{C}\) that make thi
 \section{Categorial axiomatization of Galois Theory}
 \label{sec:axioms}
 
-Through this section fix a category \(\cat{C}\) and an object \(A\in\cat{C}\).
+Through this section fix a category \(\cat{C}\), an object \(A\in\cat{C}\) and denote by \(G\) the group \(\text{Aut}(A)\).
 
 \begin{definition}
   \label{def:axioms}
-  We define the following axioms.
+  We define the following conditions/axioms.
   \begin{enumerate}
   \item For every \(X\in\cat{C}\) there is at least a map of type \(A\to X\) and all maps \(A\to X\) are strict epimorphisms.
-  \item For any subgroup \(H\leq \aut(A)\) the quotient \(\fun{q}{A}{A/H}\) exists and is preserved by \(\fun{\homs{A}{-}}{\cat{C}}{\gset}\).
+  \item For any subgroup \(H\leq \aut(A)\) the quotient \(\fun{q}{A}{A/H}\) exists and is preserved by \(\fun{\homs{A}{-}}{\cat{C}}{\gset}\) i.e. if \(q: A \to A/H\) is the quotient of \(A\) by \(H\) in \(\cat{C}\) then \(q_* : [A, A] \to [A, A/H]\) is the quotient of \([A, A]\) by \(H\) in \(\gset\).
   \item Every endomorphism of \(A\) is an isomorphism i.e. \(\homs{A}{A} = \aut(A)\).
   \end{enumerate}
 \end{definition}
@@ -307,37 +352,37 @@ Through this section fix a category \(\cat{C}\) and an object \(A\in\cat{C}\).
   Because of this if \(f\in\gset\) is an isomorphism and \(g\in\cat{C}\) is such that \(\homs{A}{g} = f\) then \(g\) is a monomorphism too; but, as an arrow of \(\cat{C}\), \(g\) is also a strict epimorphism and thus an isomorphism.
 \end{proof}
 
-\begin{remark}
-  \label{rem:axiom1}
-  Consider \(H\leq G\) and the quotient \(\fun{q}{A}{A/H}\) in \(\cat{C}\), then \(\fun{q_*}{\homs{A}{A}}{\homs{A}{A/H}}\) in \(\gset\) is a quotient too because quotients are preserved by \(\homs{A}{-}\) (Axiom (2)).
-	Thus we have \(\homs{A}{A}/H \cong \homs{A}{A/H}\), and the diagram in Figure \ref{diagram:eta} commutes (where \(\rho\) is a quotient arrow and \(\eta\) the isomorphism).
+% \begin{remark}
+%  \label{rem:axiom1}
+%%%%  Consider \(H\leq G\) and the quotient \(\fun{q}{A}{A/H}\) in \(\cat{C}\), then \(\fun{q_*}{\homs{A}{A}}{\homs{A}{A/H}}\) in \(\gset\) is a quotient too because quotients are preserved by \(\homs{A}{-}\) (Axiom (2)).
+%	Thus we have \(\homs{A}{A}/H \cong \homs{A}{A/H}\), and the diagram in Figure \ref{diagram:eta} commutes (where \(\rho\) is a quotient arrow and \(\eta\) the isomorphism).
+%
+ % \begin{figure}
+%    \begin{center}
+%      \begin{tikzcd}[sep=huge]
+ %       \homs{A}{A} \ar[r, "\rho"] \ar[rr, bend left, "q_*"] & \homs{A}{A}/H \ar[r, "\eta"] & \homs{A}{A/H}
+%      \end{tikzcd}
+ %   \end{center}
+%    \caption{}
+%    \label{diagram:eta}
+%  \end{figure}
 
-  \begin{figure}
-    \begin{center}
-      \begin{tikzcd}[sep=huge]
-        \homs{A}{A} \ar[r, "\rho"] \ar[rr, bend left, "q_*"] & \homs{A}{A}/H \ar[r, "\eta"] & \homs{A}{A/H}
-      \end{tikzcd}
-    \end{center}
-    \caption{}
-    \label{diagram:eta}
-  \end{figure}
-
-	Isomorphisms in \(\gset\) are bijections so:
-  \begin{enumerate}
-  \item[(i)] for \(f, g\in \homs{A}{A}\) if \(q\circ f = q\circ g\) then there is some \(h\in H\) such that \(f = h\circ g\),
-  \item[(ii)] for all \(\fun{x}{A}{A/H}\) there is an arrow \(f\in\homs{A}{A}\) such that \(q\circ f = x\).
-  \end{enumerate}
-  Moreover, under Axiom (3), (i) implies the following:
-  \begin{enumerate}
-  \item[(iii)] \(q\circ f = q\) implies \(f\in H\).
-  \end{enumerate}
-  Indeed by taking \(g = 1_A\) in (i) we obtain that \(f = h\) for some \(h\in H\).
-\end{remark}
+%	Isomorphisms in \(\gset\) are bijections so:
+%  \begin{enumerate}
+ % \item[(i)] for \(f, g\in \homs{A}{A}\) if \(q\circ f = q\circ g\) then there is some \(h\in H\) such that \(f = h\circ g\),
+%  \item[(ii)] for all \(\fun{x}{A}{A/H}\) there is an arrow \(f\in\homs{A}{A}\) such that \(q\circ f = x\).
+ % \end{enumerate}
+%  Moreover, under Axiom (3), (i) implies the following:
+%  \begin{enumerate}
+%  \item[(iii)] \(q\circ f = q\) implies \(f\in H\).
+%  \end{enumerate}
+%  Indeed by taking \(g = 1_A\) in (i) we obtain that \(f = h\) for some \(h\in H\).
+%\end{remark}
 
 \begin{remark}
   \label{rem:axiom2}
 	Consider an arrow \(\fun{x}{A}{X}\) and the epi-mono factorization \(x_* = \psi\circ \rho\)\footnote{We recall that \(\gset\) is a topos and, as such, has epi-mono factorization. The interested reader can find evidence of both facts in \cite{topi}.}.
-  With reference to the diagram below Axiom (3) implies that \(I = \homs{A}{A}/H\) with \(H = \fix{x}\leq G\).
+  With reference to the diagram below \(I = \homs{A}{A}/H\) with \(H = \fix{x}\leq G\).
 
   \begin{center}
     \begin{tikzcd}[sep=huge]
@@ -345,11 +390,13 @@ Through this section fix a category \(\cat{C}\) and an object \(A\in\cat{C}\).
     \end{tikzcd}
   \end{center}
 
-	Indeed by Axiom (3) \(\homs{A}{A} = G\) so an arrow from \(\homs{A}{A}\) is determined by its behaviour on \(1_A\).
-	Now
-	\[(\psi\circ\rho\circ h)(1_A) = x_*(1_A\circ h) = x\circ h = x = x_*(1_A) = (\psi\circ\rho)(1_A)\]
-  that is \(\psi\circ\rho\circ h = \psi\circ\rho\) which, by monicness of \(\psi\), implies \(\rho\circ h = \rho\).
-	This makes \(\rho\) into a quotient.
+  Indeed by Axiom (3) \(\homs{A}{A} = G\) so an arrow from \(\homs{A}{A}\) is determined by its behaviour on \(1_A\).
+  Now
+  \[(\psi\circ\rho\circ h)(1_A) = x_*(1_A\circ h) = x\circ h = x = x_*(1_A) = (\psi\circ\rho)(1_A)\]
+  that is \(\psi\circ\rho\circ h = \psi\circ\rho\) which, by monicness of \(\psi\), implies \(\rho\circ h = \rho\) for every \(h \in H\).
+  Notice also that \(\rho\) is both epi and \(G\)-invariant so we can repeat the argument of Remark \ref{rem:quotients_are_transitive} to obtain that \(I\) is transitive.
+  With \(I\) transitive it is easy to see (as in Remark \ref{rem:transitive_actions}) that every \(\sigma: [A, A] \to Y\) such that \(\sigma \circ h = \sigma\) for every \(h \in H\) factors uniquely through \(I\).
+  We conclude that \(I\) is really \([A, A]/H\).
 \end{remark}
 
 \begin{proposition}
@@ -379,12 +426,13 @@ Through this section fix a category \(\cat{C}\) and an object \(A\in\cat{C}\).
     \label{diagram:big_diagram}
   \end{figure}
 
-	By applying \(\homs{A}{-}\) we obtain Figure \ref{diagram:big_diagram} where \(\rho, \psi\) and \(\eta\) are as discussed before.
-  We have
+	By applying \(\homs{A}{-}\) we obtain Figure \ref{diagram:big_diagram} where \(\rho, \psi\) are the epi-mono factorization of \(x_*\) that we discussed in Remark \ref{rem:axiom2} and \(\eta\) is the unique isomorphism between \([A, A/H]\) and \([A, A]/H\) as they are both quotients of \([A, A]\) by \(H\) (the first by Axiom (2) and the second by Remark \ref{rem:axiom2}).
+        This also gives us that \(\eta \circ \rho = q_*\).
+        Thus
   \[\varepsilon_*\circ \eta\circ\rho = \varepsilon_*\circ q_* = x_* = \psi\circ \rho\]
   that by epicness of \(\rho\) implies \(\varepsilon_*\circ \eta = \psi\).
-  Now \(\varepsilon_*\) must be monic since \(\psi\) and \(\eta\) are; but this, by Proposition \ref{prop:hom_is_faithful}, implies that \(\varepsilon\in\cat{C}\) is monic too.
-  Being an arrow of \(\cat{C}\), by Axiom (i), \(\varepsilon\) is also a strict epimorphism and thus an isomorphism.
+  Now since \(\eta\) is an isomorphism we obtain \(\varepsilon_* = \psi \circ \eta^{-1}\) and on the right hand side we only have monomorphisms so \(\varepsilon\) must be one and, by Proposition \ref{prop:hom_is_faithful}, \(\varepsilon\) in \(\cat{C}\) is mono as well.
+  Being an arrow of \(\cat{C}\), by Remark \ref{rem:all_strict_epi}, \(\varepsilon\) is also a strict epimorphism and thus an isomorphism.
 \end{proof}
 
 \begin{proposition}
@@ -394,11 +442,11 @@ Through this section fix a category \(\cat{C}\) and an object \(A\in\cat{C}\).
 
 \begin{proof}
   Consider again Figure \ref{diagram:big_diagram}.
-  We proved that \(\varepsilon\) is an isomorphism and thus \(\varepsilon_*\) must be one too.
-  Moreover from Remark \ref{rem:axiom1} we know \(\eta\) is iso too and so we have \(\homs{A}{X}\cong \homs{A}{A}/H\), but by Axiom (3) \(\homs{A}{A} = \text{Aut}(A)\) and so we have that \(\homs{A}{X}\) is transitive.
-  %% From Proposition \ref{prop:epsilon_iso} given \(\fun{x}{A}{X}\in\cat{C}\) we have \(X\cong A/H\) with \(H = \text{Fix}(x) \leq \text{Aut}(A)\).
-  %% By Axiom (2) \(\homs{A}{A/H} \cong \homs{A}{A}/H\) and finally, via Axiom (3), \(\homs{A}{X} \cong \text{Aut}(A)/H\), a transitive \(\text{Aut}(A)\)-set.
+  We proved that \(\varepsilon\) is an isomorphism and thus \(\varepsilon_*\) must be one too; moreover \(\eta\) is iso as well so \([A, X] \cong [A, A]/H\).
+  By Axiom (3) we have \([A, A] = \text{Aut}(A)\) so \([A, X] \cong \text{Aut}(A)/H\) and by Remark \ref{rem:quotients_are_transitive} this is a transitive \(G\)-set.
 \end{proof}
+
+This last proposition gives that \([A, -]\) is actually a functor into \(\tgset\) and thus allows the discussion of Section \ref{sec:1} to be repeated.
 
 \begin{theorem}
   \label{theo:galois}
@@ -412,7 +460,7 @@ Through this section fix a category \(\cat{C}\) and an object \(A\in\cat{C}\).
 \end{theorem}
 
 \begin{proof}
-  The existence of the adjunction follows from the discussion in Section \ref{sec:1}, the fact that \(\eta\) and \(\varepsilon\) are (the components of) the unit and counit of the adjunction is a calculation that has been moved to the appendix and the fact that they are isomorphisms follows respectively from Remark \ref{rem:axiom1} and Proposition \ref{prop:epsilon_iso}.
+  The existence of the adjunction follows from the discussion in Section \ref{sec:1} (which we can repeat thanks to Proposition \ref{prop:transitive_action}), the fact that \(\eta\) and \(\varepsilon\) are (the components of) the unit and counit of the adjunction is obtained by routine calculations (see Section \ref{sec:appendixes}) and the fact that they are isomorphisms follows respectively from Axiom (2) (for \(\eta\)) and Proposition \ref{prop:epsilon_iso} (for \(\varepsilon\)).
 \end{proof}
 
 \section{Conclusion}
@@ -484,7 +532,7 @@ Let's indicate with \(\psi_{EX}\) the bijection between \(\homs{A/H}{X}\) and \(
   where \(H = \text{Fix}(x)\leq G\) (\(x\in E\)) by definition of \(A\times_G E\).
   Now (the component at \(E\) of) the unit is given by the image of \(1_{A/H}\) under this bijection.
   By the discussion in Section \ref{sec:1} if \(\fun{q}{A}{A/H}\) is the quotient arrow in \(\cat{C}\) then \(\psi(1_{A/H})\) is the map \(E\cong\homs{A}{A}_G/H \to \homs{A}{A/H}_G\) of \(\tgset\) that factors the map \(G\to E\) that sends \(e\) to \(q\).
-  But this last map is \(q^*\) as in Figure \ref{diagram:eta}.
+  But this last map is \(q_*\) and so \(\psi(1_{A/H}) = \eta\).
 \end{proof}
 
 \begin{proof}[\(\varepsilon\) is the counit]
