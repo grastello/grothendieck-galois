@@ -95,9 +95,9 @@ This theorems states the existence of a one-to-one correspondence between subgro
 
 The two statements, at least on an intuitive level, have something in common.
 Intrigued by this curious fact and moved by a belief that this is no coincidence Grothen\-dieck was able to prove a theorem (here Theorem \ref{theo:galois}) that has both of them as consequences; thus unifying the matter\footnote{It is noteworthy to say that Grothendieck went even further than that and was able to prove an even more general theorem that, even for the classical case of fields, yields results that weren't previously known. However, we will stick to the base case here; the interested reader can check \cite{edo} section IV and V.}.
-In this pages we will explore Grothendieck's approach following closely section III of \cite{edo}, but with some added details (mostly confined in the appendix).
+In this pages we will explore Grothendieck's approach following closely section III of \cite{edo}, but with some extra details.
 
-The reader is assumed to have a basic knowledge of category theory (categories, functors, natural transformations, adjoint functors, some (co)limits) and of group actions (mostly about transitive actions).
+The reader is assumed to have a basic knowledge of category theory (categories, functors, natural transformations, universal properties, adjoint functors).
 We use the notation \(H\leq G\) to indicate that \(H\) is a subgroup of \(G\) and \([-,-]\) for the hom-set \(\cat{C}(-, -)\).
 
 \section{Group actions and adjunctions}
@@ -431,7 +431,7 @@ Through this section fix a category \(\cat{C}\), an object \(A\in\cat{C}\) and d
         Thus
   \[\varepsilon_*\circ \eta\circ\rho = \varepsilon_*\circ q_* = x_* = \psi\circ \rho\]
   that by epicness of \(\rho\) implies \(\varepsilon_*\circ \eta = \psi\).
-  Now since \(\eta\) is an isomorphism we obtain \(\varepsilon_* = \psi \circ \eta^{-1}\) and on the right hand side we only have monomorphisms so \(\varepsilon\) must be one and, by Proposition \ref{prop:hom_is_faithful}, \(\varepsilon\) in \(\cat{C}\) is mono as well.
+  Now since \(\eta\) is an isomorphism we obtain \(\varepsilon_* = \psi \circ \eta^{-1}\) and on the right hand side we only have monomorphisms so \(\varepsilon_*\) must be one and, by Proposition \ref{prop:hom_is_faithful}, \(\varepsilon\) in \(\cat{C}\) is mono as well.
   Being an arrow of \(\cat{C}\), by Remark \ref{rem:all_strict_epi}, \(\varepsilon\) is also a strict epimorphism and thus an isomorphism.
 \end{proof}
 
@@ -463,23 +463,15 @@ This last proposition gives that \([A, -]\) is actually a functor into \(\tgset\
   The existence of the adjunction follows from the discussion in Section \ref{sec:1} (which we can repeat thanks to Proposition \ref{prop:transitive_action}), the fact that \(\eta\) and \(\varepsilon\) are (the components of) the unit and counit of the adjunction is obtained by routine calculations (see Section \ref{sec:appendixes}) and the fact that they are isomorphisms follows respectively from Axiom (2) (for \(\eta\)) and Proposition \ref{prop:epsilon_iso} (for \(\varepsilon\)).
 \end{proof}
 
-\section{Conclusion}
-\label{sec:conclusion}
-Let \(k\) be a field and \(E\) a finite Galois extension of \(k\).
-Let \(\cat{C}\) be the opposite category of the category of subextensions of \(E\) (with arrows restricted to the field homomorphisms that fix the base field \(k\)) then it is possible to prove that \(\cat{C}\) satisfies Axioms (1), (2) and (3) with \(A=E\).
-Indeed:
-\begin{itemize}
-	\item Axiom (3) is trivially satisfied and \(G = \text{Aut}(A, A)\) is the Galois group of \(E\),
-	\item Axiom (2) is satisfied as one can check that, for each \(H\leq G\) the fixed field
-		\[E^H = \{x\in E\colon \forall h\in H\ h(x) = x\}\]
-		is the quotient of \(E\) by \(H\) in \(\cat{C}\)\footnote{If we prefer to work in the original category of subextensions (not in the dual) this means that \(E^H\) is the coquotient of \(E\) by \(H\).},
-	\item Axiom (1) is satisfied because in the category of subextensions of \(E\) every object has an arrow to \(E\) and every such arrow is a strict monomorphism.
-\end{itemize}
-We can then apply Theorem \ref{theo:galois} to obtain that \(\cat{C}\) and \(\tgset\) are equivalent.
-The correspondence of Galois can then be retrieved by associating to each \(F\in\cat{C}\) the subgroup \(H\leq G\) such that the transitive \(G\)-set \(G/H\) is precisely the \(G\)-set associated to \(F\) by the equivalence above.
+\section{Conclusions}
+\label{sec:conclusions}
+We can obtain the classic theorems that we considered in the introduction as special cases of Theorem \ref{theo:galois}.
+
+The Fundamental Theorem of Galois Theory can be obtained by letting \(\cat{C}\) be the opposite category to that of subextensions of a finite Galois extension \(\Bbbk \subseteq K\) (with arrows restricted to field morphisms that fix the base field \(\Bbbk\)), \(A = K\) and \(G = \text{Aut}(K)\) (the Galois group of \(K\)).
+The axioms hold for the triple \((\cat{C}, K, \text{Aut}(K))\) (even if they are not trivial to check; for instance the quotients of \(K\) by a subgroup \(H \leq G\) are exactly the fixed fields \(K^H = \{x \in K : \forall h \in H\quad h(x) = x\}\)) so we get an equivalence of categories between \(\cat{C}\) and \(\tgset\).
+The correspondence of Galois can be recovered by associating to each subextension \(\Bbbk \subseteq F \subseteq K\) the subgroup \(H \leq G\) such that \([K, F] \cong G/H\).
 
 Theorem \ref{theo:galois} can also be used to give alternative proofs of other well-known results (such as the correspondence between subgroups of the fundamental group and path-connected covering spaces of a path-connected topological space) that intuitively share some similarities with the case of Galois Theory.
-Indeed the most beautiful part about this theorem is that, through its very abstract nature, is able to clearly identify, capture and unify these "intuitive similarities" that different pieces of mathematics posses\footnote{Arguably this is the goal of category theory as a whole, making this particular theorem into a quintessential example.}.
 
 \section{Appendix}
 \label{sec:appendixes}
